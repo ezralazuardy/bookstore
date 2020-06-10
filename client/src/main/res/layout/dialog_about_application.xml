@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorAccent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_info_outline_black"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="@string/text_title_dialog_about_application"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/text_app_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_light"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/activity_padding" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik"
+        android:textSize="16sp"
+        android:text="@string/text_about_application_description"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/activity_padding_half" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:id="@+id/button_website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/activity_padding_half"
+        android:text="@string/button_text_visit_cilsy"
+        app:icon="@drawable/ic_open_in_new_white"
+        app:iconPadding="10dp" />
+</LinearLayout>

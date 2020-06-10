@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorAccent"
+    android:padding="@dimen/activity_padding">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_filter_list_black"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="@string/text_title_dialog_search_book_filter"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="@dimen/activity_padding" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <CheckBox
+                android:id="@+id/checkbox_fiction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_fiction"
+                app:buttonTint="@color/colorPrimary" />
+
+            <CheckBox
+                android:id="@+id/checkbox_romance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_romance"
+                app:buttonTint="@color/colorPrimary" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <CheckBox
+                android:id="@+id/checkbox_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_history"
+                app:buttonTint="@color/colorPrimary" />
+
+            <CheckBox
+                android:id="@+id/checkbox_science"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_science"
+                app:buttonTint="@color/colorPrimary" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <CheckBox
+                android:id="@+id/checkbox_horror"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_horror"
+                app:buttonTint="@color/colorPrimary" />
+
+            <CheckBox
+                android:id="@+id/checkbox_art"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_art"
+                app:buttonTint="@color/colorPrimary" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <CheckBox
+                android:id="@+id/checkbox_non_fiction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_non_fiction"
+                app:buttonTint="@color/colorPrimary" />
+
+            <CheckBox
+                android:id="@+id/checkbox_psychology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_weight="1"
+                android:text="@string/checkbox_book_type_psychology"
+                app:buttonTint="@color/colorPrimary" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        style="?attr/buttonBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/activity_padding_half">
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/button_clear_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_padding_half"
+            android:text="@string/button_text_clear" />
+
+        <Button
+            android:id="@+id/button_apply_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text_apply" />
+
+    </LinearLayout>
+
+</LinearLayout>
