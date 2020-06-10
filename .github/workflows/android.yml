@@ -12,5 +12,5 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Android Github Action
-      uses: Vukan-Markovic/Github-Android-Action@1.2
+    - name: Android Setup Action
+      uses: kineticengines/setup-android-actions@v0.1
