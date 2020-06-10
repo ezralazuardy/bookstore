@@ -26,9 +26,6 @@ Here some app's features :
 - Book category management
 - Transaction management
 
-### 📦 Assets
-Get the App's required assets [here](https://github.com/ezralazuardy/bookstore/tree/master/assets).
-
 ### ☁ REST API
 This app uses a REST API provided by [Cilsy Sekolah Backend](https://sekolahbackend.com/). Check the documentation [here](https://obstore.herokuapp.com/swagger-ui.html).
 
