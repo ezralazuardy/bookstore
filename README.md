@@ -24,7 +24,7 @@ Here some app's features :
 - Homepage
 - Book management
 - Book category management
-- Transaction management
+- Client purchase history
 
 ### ☁ REST API
 This app uses a REST API provided by [Cilsy Sekolah Backend](https://sekolahbackend.com/). Check the documentation [here](https://obstore.herokuapp.com/swagger-ui.html).
