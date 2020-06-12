@@ -1,7 +1,7 @@
 package com.bookstore.ui.search.adapter
 
-import com.bookstore.model.response.book.Book
 import com.bookstore.constant.BookType
+import com.bookstore.model.response.book.Book
 
 interface SearchBookItemListener {
 

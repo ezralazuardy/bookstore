@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.constant.CartStatus
 import com.bookstore.model.formatted.cart.CartResponse
 import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.CartRepository
@@ -25,7 +26,7 @@ class CartViewModel(
     fun getCart() = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = cartRepository.getCart()
-            if(result.details.isNotEmpty())
+            if (result.details.any { it.cartDetailStatus == CartStatus.CARTED.toString() })
                 _cartResponse.postValue(CartResponse(RetrofitStatus.SUCCESS, result))
             else
                 _cartResponse.postValue(CartResponse(RetrofitStatus.EMPTY))

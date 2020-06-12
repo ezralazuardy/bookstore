@@ -10,7 +10,6 @@
     <string name="text_title_book_fragment">Book List</string>
     <string name="text_title_cart_fragment">Cart</string>
     <string name="text_title_profile_fragment">My Profile</string>
-    <string name="text_placeholder_error_server">Oh snap!, there is an error occurred in our server, please try again later</string>
     <string name="text_placeholder_empty_book">Whoops, looks like we have\'nt prepared any books yet</string>
     <string name="text_placeholder_empty_wishlist">You have\'nt add any book to your wishlist</string>
     <string name="text_placeholder_empty_cart">Your shopping cart is empty</string>
@@ -24,7 +23,6 @@
     <string name="text_title_profile_menu">Account</string>
     <string name="text_item_cart_book_price" translatable="false">Rp. %1$d</string>
     <string name="text_title_category_home">Book\'s Categories</string>
-    <string name="text_title_trending_home">Now Trending</string>
     <string name="text_button_signin">Sign In</string>
     <string name="text_title_activity_signin">Sign In to Book Store</string>
     <string name="text_hint_input_username">Username</string>
@@ -54,7 +52,6 @@
     <string name="text_about_application_version">Book Store Client version %1$s</string>
     <string name="text_about_application_description">This is a Book Store Client Android Application, intended for study purpose at Cilsy Sekolah Mobile Course 3.</string>
     <string name="button_text_visit_cilsy">Visit Cilsy Sekolah Mobile</string>
-    <string name="text_card_checkout">Proceed to Checkout</string>
     <string name="text_title_total_price">Total Price:</string>
     <string name="text_title_activity_checkout">Checkout</string>
     <string name="button_confirm_checkout">Confirm Checkout</string>
@@ -75,9 +72,8 @@
     <string name="button_text_done">Done</string>
     <string name="text_payment_success">We\'ve verify your payment, thanks for purchasing!</string>
     <string name="text_title_payment_success">Payment Successful</string>
-    <string name="text_invoice_warning">Please pay your invoice before it\'s expired</string>
     <string name="text_empty">-</string>
-    <string name="dialog_cancel_payment">Are you sure want to cancel your payment?. Your current cart will be discarded.</string>
+    <string name="dialog_cancel_payment">Are you sure want to cancel your payment? Your current cart will be discarded</string>
     <string name="button_yes">Yes</string>
     <string name="button_cancel">Cancel</string>
 </resources>

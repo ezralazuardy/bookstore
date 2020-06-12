@@ -29,7 +29,6 @@
                 android:paddingEnd="@dimen/activity_padding"
                 android:layout_marginTop="@dimen/activity_padding"
                 android:layout_marginStart="@dimen/activity_padding"
-                android:layout_marginEnd="58dp"
                 android:layout_marginBottom="@dimen/activity_padding"
                 android:orientation="horizontal"
                 android:background="@drawable/background_search_home"
@@ -37,7 +36,7 @@
                 android:focusable="true"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_settings"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:ignore="UnusedAttribute">
 

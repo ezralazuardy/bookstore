@@ -1,8 +1,8 @@
 package com.bookstore.ui.checkout
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.bookstore.R
@@ -22,6 +22,9 @@ class CheckoutActivity : AppCompatActivity() {
     private val checkoutFragment by lazy {
         CheckoutFragment()
     }
+    private val paymentFragment by lazy {
+        PaymentFragment()
+    }
     private val paymentSuccessFragment by lazy {
         PaymentSuccessFragment()
     }
@@ -30,8 +33,11 @@ class CheckoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
         checkoutViewModel.cartResponse.observe(this, Observer { cart ->
-            when(cart.status) {
-                RetrofitStatus.SUCCESS -> Log.d(this::class.java.simpleName, "Successfully fetch cart data")
+            when (cart.status) {
+                RetrofitStatus.SUCCESS -> Log.d(
+                    this::class.java.simpleName,
+                    "Successfully fetch cart data"
+                )
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
                 else -> Log.e(this::class.java.simpleName, "Error occurred when fetching cart data")
             }
@@ -39,9 +45,10 @@ class CheckoutActivity : AppCompatActivity() {
         checkoutViewModel.checkoutResponse.observe(this, Observer { checkout ->
             when(checkout.status) {
                 RetrofitStatus.SUCCESS -> checkout.transaction?.let { checkoutTransaction ->
+                    paymentFragment.setData(checkoutTransaction)
                     supportFragmentManager.commit {
                         setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-                        replace(fragment_container.id, PaymentFragment(checkoutTransaction))
+                        replace(fragment_container.id, paymentFragment)
                     }
                 }
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
@@ -63,15 +70,14 @@ class CheckoutActivity : AppCompatActivity() {
             replace(fragment_container.id, checkoutFragment)
         }
         button_back.setOnClickListener {
-            super.onBackPressed()
+            onBackPressed()
         }
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         MaterialAlertDialogBuilder(this)
             .setMessage(getString(R.string.dialog_cancel_payment))
-            .setPositiveButton(getString(R.string.button_yes)) { _, _ -> finish() }
+            .setPositiveButton(getString(R.string.button_yes)) { _, _ -> super.onBackPressed() }
             .setNegativeButton(getString(R.string.button_cancel)) { dialog, _ -> dialog.dismiss() }
             .show()
     }

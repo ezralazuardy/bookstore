@@ -4,7 +4,10 @@ import com.bookstore.config.AppConfig
 import com.bookstore.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest
 import com.bookstore.model.response.transaction.Transaction
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.POST
 
 interface RemoteTransactionDAO {
 

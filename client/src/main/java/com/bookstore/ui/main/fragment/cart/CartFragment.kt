@@ -15,6 +15,7 @@ import com.bookstore.constant.CartStatus
 import com.bookstore.model.response.cart.CartDetail
 import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.ui.book.BookDetailActivity
+import com.bookstore.ui.checkout.CheckoutActivity
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.main.fragment.cart.adapter.CartAdapter
 import com.bookstore.ui.main.fragment.cart.adapter.CartItemListener
@@ -55,8 +56,10 @@ class CartFragment : Fragment(), CartItemListener {
                 }
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
                 else -> {
+                    button_search.isEnabled = false
                     recyclerview.hide()
                     placeholder_empty_cart.show()
+                    layout_cart_checkout.hide()
                 }
             }
         })
@@ -78,8 +81,11 @@ class CartFragment : Fragment(), CartItemListener {
             hideSearchBar()
             cartAdapter.performFilterByName(null)
         }
+        button_checkout_cart.setOnClickListener {
+            startActivity(Intent(requireActivity(), CheckoutActivity::class.java))
+        }
         input_search.setOnEditorActionListener { _, actionId, _ ->
-            if(actionId == EditorInfo.IME_ACTION_SEARCH) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 cartAdapter.performFilterByName(input_search.text.toString())
                 input_search.hideKeyboard()
             }

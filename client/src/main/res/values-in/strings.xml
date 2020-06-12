@@ -10,7 +10,6 @@
     <string name="text_title_book_fragment">Daftar Buku</string>
     <string name="text_title_cart_fragment">Keranjang Belanja</string>
     <string name="text_title_profile_fragment">Profilku</string>
-    <string name="text_placeholder_error_server">Oh tidak!, sepertinya telah terjadi galat di server kami, mohon coba lagi nanti</string>
     <string name="text_placeholder_empty_book">Wah, sepertinya kami belum menyiapkan buku apapun</string>
     <string name="text_placeholder_empty_wishlist">Kamu belum menambah buku apapun ke daftar favorit</string>
     <string name="text_placeholder_empty_cart">Keranjang belanjamu kosong, coba tambahkan beberapa buku ke keranjang belanja dan kami akan menampilkannya disini</string>
@@ -23,7 +22,6 @@
     <string name="text_profile_menu_about">Tentang Aplikasi</string>
     <string name="text_title_profile_menu">Akun</string>
     <string name="text_title_category_home">Kategori Buku</string>
-    <string name="text_title_trending_home">Sedang Populer</string>
     <string name="text_button_signin">Masuk</string>
     <string name="text_title_activity_signin">Masuk ke Book Store</string>
     <string name="text_hint_input_username">Nama pengguna</string>
@@ -52,7 +50,6 @@
     <string name="text_about_application_version">Book Store Client versi %1$s</string>
     <string name="text_about_application_description">Aplikasi ini merupakan Book Store Client untuk Android, dikembangkan dengan tujuan pembelajaran di Cilsy Sekolah Mobile Course 3.</string>
     <string name="button_text_visit_cilsy">Kunjungi Cilsy Sekolah Mobile</string>
-    <string name="text_card_checkout">Lanjutkan ke Pembayaran</string>
     <string name="text_title_total_price">Harga Total:</string>
     <string name="text_title_activity_checkout">Pembayaran</string>
     <string name="button_confirm_checkout">Konfirmasi Barang</string>
@@ -73,9 +70,8 @@
     <string name="text_invoice_items">Items</string>
     <string name="text_payment_success">We\'ve verify your payment, thanks for purchasing!</string>
     <string name="text_title_payment_success">Payment Successful</string>
-    <string name="text_invoice_warning">Please pay your invoice before it\'s expired</string>
     <string name="text_empty">-</string>
-    <string name="dialog_cancel_payment">Kamu yakin ingin membatalkan pembayaran?. Keranjang belanjamu saat ini akan dihapus.</string>
+    <string name="dialog_cancel_payment">Kamu yakin ingin membatalkan pembayaran? Keranjang belanjamu saat ini akan dihapus</string>
     <string name="button_yes">Ya</string>
     <string name="button_cancel">Batal</string>
 </resources>

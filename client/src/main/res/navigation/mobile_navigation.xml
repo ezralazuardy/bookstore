@@ -28,4 +28,5 @@
         android:name="com.bookstore.ui.main.fragment.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
 </navigation>

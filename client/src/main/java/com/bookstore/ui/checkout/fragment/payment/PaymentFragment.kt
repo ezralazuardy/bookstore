@@ -21,13 +21,12 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_payment.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class PaymentFragment(
-    private val transaction: Transaction
-) : Fragment(), PaymentItemListener {
+class PaymentFragment : Fragment(), PaymentItemListener {
 
     private val checkoutViewModel: CheckoutViewModel by sharedViewModel()
+    private lateinit var transaction: Transaction
     private val paymentAdapter by lazy {
-        PaymentAdapter(this, transaction.details)
+        PaymentAdapter(this)
     }
 
     override fun onCreateView(
@@ -39,26 +38,47 @@ class PaymentFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         checkoutViewModel.paymentResponse.observe(viewLifecycleOwner, Observer { payment ->
-            when(payment.status) {
-                RetrofitStatus.SUCCESS -> Log.d(this::class.java.simpleName, "Successfully perform payment")
-                RetrofitStatus.UNAUTHORIZED -> Log.e(this::class.java.simpleName, "Your session is expired, please resign-in")
+            when (payment.status) {
+                RetrofitStatus.SUCCESS -> Log.d(
+                    this::class.java.simpleName,
+                    "Successfully perform payment"
+                )
+                RetrofitStatus.UNAUTHORIZED -> Log.e(
+                    this::class.java.simpleName,
+                    "Your session is expired, please resign-in"
+                )
                 else -> {
                     button_pay.isEnabled = true
-                    Snackbar.make(parent_layout, "Error occurred when performing payment", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        parent_layout,
+                        "Error occurred when performing payment",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
         })
-        text_invoice_number.text = transaction.invoiceNumber
-        text_invoice_date.text = transaction.createdTime
-        text_total_price.text = getString(R.string.text_item_cart_book_price, transaction.details.map { it.price }.sum())
-        button_pay.setOnClickListener {
-            button_pay.isEnabled = false
-            performPayment()
-        }
         recyclerview.apply {
             adapter = paymentAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (this::transaction.isInitialized) {
+            text_invoice_number.text = transaction.invoiceNumber
+            text_invoice_date.text = transaction.createdTime
+            text_total_price.text = getString(
+                R.string.text_item_cart_book_price,
+                transaction.details.map { it.price.toLong() }.sum()
+            )
+            button_pay.setOnClickListener {
+                button_pay.isEnabled = false
+                performPayment()
+            }
+            paymentAdapter.setData(transaction.details)
         }
     }
 
@@ -68,4 +88,8 @@ class PaymentFragment(
     }
 
     private fun performPayment() = checkoutViewModel.performPayment(transaction.id)
+
+    fun setData(transaction: Transaction) {
+        this.transaction = transaction
+    }
 }

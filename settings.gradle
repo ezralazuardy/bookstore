@@ -1,2 +1,3 @@
+include ':admin'
 rootProject.name='Book Store'
 include ':client'

@@ -1,8 +1,8 @@
 package com.bookstore.ui.signin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bookstore.R
 import com.bookstore.model.status.RetrofitStatus

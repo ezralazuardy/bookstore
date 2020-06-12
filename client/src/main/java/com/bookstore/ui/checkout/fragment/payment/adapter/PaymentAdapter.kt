@@ -13,16 +13,26 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.item_list_payment.view.*
 
 class PaymentAdapter(
-    private val paymentItemListener: PaymentItemListener,
-    private val transactionDetails: List<TransactionDetail>
+    private val paymentItemListener: PaymentItemListener
 ) : RecyclerView.Adapter<PaymentAdapter.ViewHolder>() {
 
+    private val transactionDetails = mutableListOf<TransactionDetail>()
+
+    fun setData(transactionDetails: List<TransactionDetail>) {
+        this.transactionDetails.clear()
+        this.transactionDetails.addAll(transactionDetails)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_payment, parent, false))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list_payment, parent, false)
+        )
 
     override fun getItemCount(): Int = transactionDetails.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(transactionDetails[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
+        holder.bind(transactionDetails[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

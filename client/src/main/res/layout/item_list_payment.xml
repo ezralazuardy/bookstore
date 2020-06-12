@@ -12,7 +12,10 @@
         android:id="@+id/card"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_padding_half">
+        android:layout_margin="@dimen/activity_padding_half"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +41,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_bold"
-                    android:textSize="@dimen/text_size_item_list_cart_name"
+                    android:textSize="16sp"
                     android:textColor="@android:color/black"
                     android:includeFontPadding="false"
                     android:layout_gravity="end|center"
@@ -48,6 +51,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

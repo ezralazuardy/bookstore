@@ -135,7 +135,7 @@
 
                 <TableLayout
                     android:id="@+id/table_invoice_detail"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_padding"
                     android:layout_marginStart="@dimen/activity_padding"
@@ -149,7 +149,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_invoice_number"
@@ -158,7 +158,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_equal"
@@ -167,13 +167,15 @@
 
                         <TextView
                             android:id="@+id/text_invoice_number"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:fontFamily="@font/rubik"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_empty"
                             android:layout_marginStart="@dimen/activity_padding_half"
+                            android:textIsSelectable="true"
                             android:includeFontPadding="false" />
 
                     </TableRow>
@@ -183,7 +185,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_created_on"
@@ -192,7 +194,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_equal"
@@ -201,13 +203,15 @@
 
                         <TextView
                             android:id="@+id/text_invoice_date"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:fontFamily="@font/rubik"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_empty"
                             android:layout_marginStart="@dimen/activity_padding_half"
+                            android:textIsSelectable="true"
                             android:includeFontPadding="false" />
 
                     </TableRow>
@@ -217,7 +221,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_invoice_items"
@@ -226,7 +230,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/rubik"
+                            android:fontFamily="@font/rubik_medium"
                             android:textSize="16sp"
                             android:textColor="@android:color/black"
                             android:text="@string/text_equal"
@@ -241,13 +245,13 @@
                     android:id="@+id/recyclerview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/activity_padding_half"
                     android:paddingStart="@dimen/activity_padding_half"
-                    android:paddingBottom="@dimen/activity_padding_half"
+                    android:layout_marginBottom="@dimen/activity_padding"
                     android:paddingEnd="0dp"
                     android:clipToPadding="false"
                     app:layout_constraintTop_toBottomOf="@id/table_invoice_detail"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -302,7 +306,6 @@
             android:layout_height="wrap_content"
             android:text="@string/button_pay_now"
             android:layout_margin="@dimen/activity_padding"
-            android:enabled="false"
             app:icon="@drawable/ic_payment_white"
             app:iconGravity="textStart"
             app:iconPadding="14dp"
