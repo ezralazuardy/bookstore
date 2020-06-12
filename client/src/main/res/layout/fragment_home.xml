@@ -71,204 +71,198 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@id/app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_padding"
+                tools:ignore="UselessParent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@android:color/white"
-                    android:padding="@dimen/activity_padding"
-                    tools:ignore="UselessParent">
+                    android:layout_marginBottom="@dimen/activity_padding"
+                    android:fontFamily="@font/rubik_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_title_category_home"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textAlignment="textStart"
-                        android:textSize="18sp"
-                        android:textColor="@android:color/black"
-                        android:includeFontPadding="false"
-                        android:layout_marginBottom="@dimen/activity_padding"
-                        android:text="@string/text_title_category_home" />
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:columnCount="4"
+                    android:rowCount="2">
 
-                    <GridLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:columnCount="4"
-                        android:rowCount="2"
-                        android:layout_gravity="center">
+                    <FrameLayout
+                        android:id="@+id/button_category_fiction"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_fiction"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_fiction" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_fiction"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_history"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_history"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_history" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_history"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_horror"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_horror"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_horror" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_horror"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_non_fiction"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_non_fiction"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_non_fiction" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_non_fiction"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_romance"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="@dimen/activity_padding"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_romance"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginTop="@dimen/activity_padding">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_romance" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_romance"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_science"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="@dimen/activity_padding"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_science"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginTop="@dimen/activity_padding">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_science" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_science"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_art"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="@dimen/activity_padding"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_art"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginTop="@dimen/activity_padding">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_art" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_art"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button_category_psychology"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginTop="@dimen/activity_padding"
+                        android:background="@drawable/background_button_category_home"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/activity_padding">
 
-                        <FrameLayout
-                            android:id="@+id/button_category_psychology"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/background_button_category_home"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="@dimen/activity_padding"
-                            android:layout_marginTop="@dimen/activity_padding">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/category_psychology" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/category_psychology"
-                                android:contentDescription="@null" />
+                    </FrameLayout>
 
-                        </FrameLayout>
-
-                    </GridLayout>
-
-                </LinearLayout>
+                </GridLayout>
 
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

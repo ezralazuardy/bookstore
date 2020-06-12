@@ -12,6 +12,8 @@ internal object AppConfig {
     const val OAUTH_DEFAULT_SCOPE = "read+write"
     const val OAUTH_DEFAULT_USER_AGENT = "Android"
     const val OAUTH_DEFAULT_USER_ID = 1
+    const val OAUTH_DEFAULT_ACCOUNT_USERNAME = "admin"
+    const val OAUTH_DEFAULT_ACCOUNT_PASSWORD = "admin123"
 
     const val ROOM_DEFAULT_DATABASE_NAME = "admin_local_database"
     const val ROOM_DEFAULT_SESSION_TABLE_NAME = "admin_session_table"

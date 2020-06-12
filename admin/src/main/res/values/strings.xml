@@ -30,7 +30,7 @@
     <string name="text_title_category_home">Overview</string>
     <string name="text_title_trending_home">Now Trending</string>
     <string name="text_button_signin">Sign In</string>
-    <string name="text_title_activity_signin">Sign In to Book Store</string>
+    <string name="text_title_activity_signin">Sign In to\nBook Store Admin</string>
     <string name="text_hint_input_username">Username</string>
     <string name="text_hint_input_password">Password</string>
     <string name="text_title_activity_search">Search Books</string>
@@ -55,7 +55,7 @@
     <string name="text_row_setting_language">Application Language</string>
     <string name="text_card_filter_info">%1$d book type filtering are applied</string>
     <string name="text_title_dialog_about_application">About Application</string>
-    <string name="text_about_application_version">Book Store Client version %1$s</string>
+    <string name="text_about_application_version">Book Store Admin version %1$s</string>
     <string name="text_about_application_description">This is a Book Store Admin Android Application, intended for study purpose at Cilsy Sekolah Mobile Course 3.</string>
     <string name="button_text_visit_cilsy">Visit Cilsy Sekolah Mobile</string>
     <string name="text_card_checkout">Proceed to Checkout</string>

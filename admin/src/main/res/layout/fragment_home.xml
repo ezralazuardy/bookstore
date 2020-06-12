@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.bookstore.admin.ui.main.fragment.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -51,6 +52,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,7 +100,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/activity_padding"
                             android:layout_weight="1"
-                            android:background="@drawable/background_button_category_home"
+                            android:background="@drawable/background_overview_card_home"
                             android:orientation="vertical"
                             android:padding="@dimen/activity_padding">
 
@@ -113,6 +115,7 @@
                                 android:gravity="center|start"
                                 android:includeFontPadding="false"
                                 android:maxLines="1"
+                                android:text="@string/text_empty"
                                 android:textColor="@android:color/black"
                                 android:textSize="18sp" />
 
@@ -134,7 +137,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:background="@drawable/background_button_category_home"
+                            android:background="@drawable/background_overview_card_home"
                             android:orientation="vertical"
                             android:padding="@dimen/activity_padding">
 
@@ -149,6 +152,7 @@
                                 android:gravity="center|start"
                                 android:includeFontPadding="false"
                                 android:maxLines="1"
+                                android:text="@string/text_empty"
                                 android:textColor="@android:color/black"
                                 android:textSize="18sp" />
 
@@ -180,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/activity_padding"
                             android:layout_weight="1"
-                            android:background="@drawable/background_button_category_home"
+                            android:background="@drawable/background_overview_card_home"
                             android:orientation="vertical"
                             android:padding="@dimen/activity_padding">
 
@@ -195,6 +199,7 @@
                                 android:gravity="center|start"
                                 android:includeFontPadding="false"
                                 android:maxLines="1"
+                                android:text="@string/text_empty"
                                 android:textColor="@android:color/black"
                                 android:textSize="18sp" />
 

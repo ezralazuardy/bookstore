@@ -12,11 +12,6 @@ class TransactionRepository(
     private val transactionDAO: RemoteTransactionDAO
 ) {
 
-    suspend fun getCheckoutHistory() : List<Transaction> = userRepository.checkSession().let {
-        if(it != null) return transactionDAO.getCheckoutHistory(it.asBearer())
-        else throw SessionHelper.unauthorizedException
-    }
-
     suspend fun performCheckout(checkoutRequest: CheckoutRequest) : Transaction =
         userRepository.checkSession().let {
             if(it != null) return transactionDAO.performCheckout(it.asBearer(), checkoutRequest)

@@ -1,9 +1,8 @@
 package com.bookstore.admin.dao.remote
 
-import com.bookstore.admin.config.AppConfig
 import com.bookstore.admin.model.request.book.FavouriteBookRequest
 import com.bookstore.admin.model.response.book.Book
-import com.bookstore.admin.model.response.book.FavouriteBook
+import com.bookstore.admin.model.response.book.BookCategory
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -13,8 +12,8 @@ interface RemoteBookDAO {
     @GET("/api/rest/book/findAll")
     suspend fun getBook(@Header("Authorization") authorization: String): List<Book>
 
-    @GET("/api/rest/favourite-book/findByUserId/${AppConfig.OAUTH_DEFAULT_USER_ID}")
-    suspend fun getFavouriteBook(@Header("Authorization") authorization: String): FavouriteBook
+    @GET("/api/rest/book-category/findAll")
+    suspend fun getBookCategory(@Header("Authorization") authorization: String): List<BookCategory>
 
     @POST("/api/rest/favourite-book/saveOrUpdate")
     suspend fun addBookToFavourite(
