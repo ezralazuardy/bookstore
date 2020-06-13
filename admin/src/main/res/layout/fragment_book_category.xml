@@ -20,7 +20,7 @@
             android:animateLayoutChanges="true">
 
             <TextView
-                android:id="@+id/text_title_fragment_purchase"
+                android:id="@+id/text_title_fragment_book_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_padding"

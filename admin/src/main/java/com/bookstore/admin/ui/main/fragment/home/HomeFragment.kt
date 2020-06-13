@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
             }
         })
         swipe_refresh_layout.setOnRefreshListener {
-            swipe_refresh_layout.isRefreshing = true
             homeViewModel.getBookCount()
         }
         button_settings.setOnClickListener {

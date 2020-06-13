@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.item_list_cart.view.*
+import java.util.*
 
 class CartAdapter(
     private val cartItemListener: CartItemListener
@@ -44,11 +45,11 @@ class CartAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(position, carts[position])
 
-    @SuppressLint("DefaultLocale")
     override fun performFilterByName(bookName: String?) {
         carts = originalCarts
         if(!bookName.isNullOrEmpty()) carts = originalCarts.filter {
-            it.bookModel.title.trim().toLowerCase().contains(bookName.trim().toLowerCase())
+            it.bookModel.title.trim().toLowerCase(Locale.getDefault())
+                .contains(bookName.trim().toLowerCase(Locale.getDefault()))
         }
         cartItemListener.onItemSearch(carts.isEmpty())
         notifyDataSetChanged()

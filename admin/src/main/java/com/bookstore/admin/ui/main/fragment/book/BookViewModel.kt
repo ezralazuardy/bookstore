@@ -27,6 +27,7 @@ class BookViewModel(
         try {
             val result = bookRepository.getBook().sortedBy { it.id }
                 .filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
+                .filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
             if (result.isNotEmpty()) _bookResponse.postValue(
                 BookResponse(
                     RetrofitStatus.SUCCESS,

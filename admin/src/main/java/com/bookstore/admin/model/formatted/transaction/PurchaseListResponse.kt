@@ -5,5 +5,5 @@ import com.bookstore.admin.model.status.RetrofitStatus
 
 data class PurchaseListResponse(
     val status: RetrofitStatus = RetrofitStatus.UNKNOWN,
-    val transaction: List<Transaction>? = null
+    val transactions: List<Transaction>? = null
 )

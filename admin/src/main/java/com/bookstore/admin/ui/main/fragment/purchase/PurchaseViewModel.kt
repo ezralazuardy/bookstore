@@ -22,7 +22,7 @@ class PurchaseViewModel(
     private val _purchaseListResponse = MutableLiveData<PurchaseListResponse>()
     val purchaseListResponse: LiveData<PurchaseListResponse> = _purchaseListResponse
 
-    fun getPurchaseCount() = viewModelScope.launch(Dispatchers.IO) {
+    fun getPurchaseList() = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = transactionRepository.getCheckoutHistory()
             if (result.isNotEmpty()) _purchaseListResponse.postValue(
