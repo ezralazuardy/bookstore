@@ -27,7 +27,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class BookDetailActivity : AppCompatActivity() {
 
     companion object {
-        const val DATA = "book_activity_data"
+        const val DATA = "book_detail_activity_data"
     }
 
     private val mainViewModel: MainViewModel by viewModel()

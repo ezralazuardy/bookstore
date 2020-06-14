@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bookstore.admin.R
 import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.model.status.RetrofitStatus
@@ -79,7 +79,7 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
         }
         recyclerview.apply {
             adapter = bookCategoryAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(), 2)
             setHasFixedSize(true)
         }
         button_search.isEnabled = false

@@ -6,7 +6,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.model.formatted.book.BookCategoryCountResponse
 import com.bookstore.admin.model.formatted.book.BookCountResponse
 import com.bookstore.admin.model.formatted.transaction.PurchaseCountResponse
@@ -29,8 +28,7 @@ class HomeViewModel(
 
     fun getBookCount() = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val result =
-                bookRepository.getBook().filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
+            val result = bookRepository.getBook()
             if (result.isNotEmpty()) _bookCountResponse.postValue(
                 BookCountResponse(
                     RetrofitStatus.SUCCESS,

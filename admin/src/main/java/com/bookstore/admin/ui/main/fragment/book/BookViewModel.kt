@@ -6,7 +6,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.model.formatted.book.BookResponse
 import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.repository.BookRepository
@@ -26,8 +25,6 @@ class BookViewModel(
     fun getBook() = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = bookRepository.getBook().sortedBy { it.id }
-                .filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
-                .filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
             if (result.isNotEmpty()) _bookResponse.postValue(
                 BookResponse(
                     RetrofitStatus.SUCCESS,

@@ -1,5 +1,6 @@
 package com.bookstore.admin.ui.main.fragment.book
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookstore.admin.R
 import com.bookstore.admin.model.response.book.Book
 import com.bookstore.admin.model.status.RetrofitStatus
+import com.bookstore.admin.ui.book.add.AddBookActivity
+import com.bookstore.admin.ui.book.edit.EditBookActivity
 import com.bookstore.admin.ui.main.MainViewModel
 import com.bookstore.admin.ui.main.fragment.book.adapter.BookAdapter
 import com.bookstore.admin.ui.main.fragment.book.adapter.BookItemListener
@@ -61,7 +64,7 @@ class BookFragment : Fragment(), BookItemListener {
             showSearchBar()
         }
         button_add.setOnClickListener {
-
+            startActivity(Intent(requireContext(), AddBookActivity::class.java))
         }
         button_clear_search.setOnClickListener {
             hideSearchBar()
@@ -97,7 +100,11 @@ class BookFragment : Fragment(), BookItemListener {
     }
 
     override fun onItemClick(book: Book) {
-
+        startActivity(
+            Intent(requireContext(), EditBookActivity::class.java).putExtra(
+                EditBookActivity.DATA, book
+            )
+        )
     }
 
     override fun onItemDraw(books: List<Book>) {

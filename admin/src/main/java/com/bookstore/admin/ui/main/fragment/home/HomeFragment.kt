@@ -31,26 +31,22 @@ class HomeFragment : Fragment() {
         homeViewModel.bookCountResponse.observe(viewLifecycleOwner, Observer {
             homeViewModel.getBookCategoryCount()
             when (it.status) {
-                RetrofitStatus.SUCCESS -> text_book_count.text = it.bookCount.toString()
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
-                else -> text_book_count.text = getString(R.string.text_empty)
+                else -> text_book_count.text = it.bookCount.toString()
             }
         })
         homeViewModel.bookCategoryCountResponse.observe(viewLifecycleOwner, Observer {
             homeViewModel.getPurchaseCount()
             when (it.status) {
-                RetrofitStatus.SUCCESS -> text_book_category_count.text =
-                    it.bookCategoryCount.toString()
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
-                else -> text_book_category_count.text = getString(R.string.text_empty)
+                else -> text_book_category_count.text = it.bookCategoryCount.toString()
             }
         })
         homeViewModel.purchaseCountResponse.observe(viewLifecycleOwner, Observer {
             swipe_refresh_layout.isRefreshing = false
             when (it.status) {
-                RetrofitStatus.SUCCESS -> text_purchase_count.text = it.transactionCount.toString()
                 RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(requireActivity())
-                else -> text_purchase_count.text = getString(R.string.text_empty)
+                else -> text_purchase_count.text = it.transactionCount.toString()
             }
         })
         swipe_refresh_layout.setOnRefreshListener {

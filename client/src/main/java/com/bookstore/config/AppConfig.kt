@@ -11,7 +11,7 @@ object AppConfig {
     const val OAUTH_DEFAULT_GRANT_TYPE = "password"
     const val OAUTH_DEFAULT_SCOPE = "read+write"
     const val OAUTH_DEFAULT_USER_AGENT = "Android"
-    const val OAUTH_DEFAULT_USER_ID = 2
+    const val OAUTH_DEFAULT_CUSTOMER_ID = 2
 
     const val ROOM_DEFAULT_DATABASE_NAME = "local_database"
     const val ROOM_DEFAULT_SESSION_TABLE_NAME = "session_table"

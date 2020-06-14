@@ -46,4 +46,5 @@
         android:text="@string/button_text_visit_cilsy"
         app:icon="@drawable/ic_open_in_new_white"
         app:iconPadding="10dp" />
+
 </LinearLayout>

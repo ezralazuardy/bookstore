@@ -2,7 +2,7 @@
     <dimen name="activity_padding">20dp</dimen>
     <dimen name="activity_padding_half">10dp</dimen>
     <dimen name="text_size_search_hint_fragment_book">16sp</dimen>
-    <dimen name="text_size_app_bar">20sp</dimen>
+    <dimen name="text_size_app_bar">18sp</dimen>
     <dimen name="image_size_placeholder">100dp</dimen>
     <dimen name="text_size_placeholder_message">18sp</dimen>
     <dimen name="image_size_profile">60dp</dimen>

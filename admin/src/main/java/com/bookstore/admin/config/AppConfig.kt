@@ -11,7 +11,8 @@ internal object AppConfig {
     const val OAUTH_DEFAULT_GRANT_TYPE = "password"
     const val OAUTH_DEFAULT_SCOPE = "read+write"
     const val OAUTH_DEFAULT_USER_AGENT = "Android"
-    const val OAUTH_DEFAULT_USER_ID = 1
+    const val OAUTH_DEFAULT_ADMIN_ID = 1
+    const val OAUTH_DEFAULT_CUSTOMER_ID = 2
     const val OAUTH_DEFAULT_ACCOUNT_USERNAME = "admin"
     const val OAUTH_DEFAULT_ACCOUNT_PASSWORD = "admin123"
 

@@ -65,6 +65,10 @@ class BookFragment : Fragment(), BookItemListener {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         bookViewModel.getBook()
     }
 

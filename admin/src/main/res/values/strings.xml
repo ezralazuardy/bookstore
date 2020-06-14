@@ -2,7 +2,7 @@
     <string name="app_name">Book Store Admin</string>
     <string name="title_home">Home</string>
     <string name="title_book">Books</string>
-    <string name="title_book_category">Book Categories</string>
+    <string name="title_book_category">Categories</string>
     <string name="title_profile">Profile</string>
     <string name="title_purchase">Purchases</string>
     <string name="title_cart">Cart</string>
@@ -81,7 +81,10 @@
     <string name="text_title_payment_success">Payment Successful</string>
     <string name="text_invoice_warning">Please pay your invoice before it\'s expired</string>
     <string name="text_empty">-</string>
-    <string name="dialog_cancel_payment">Are you sure want to cancel your payment?. Your current cart will be discarded.</string>
+    <string name="dialog_cancel_payment">Are you sure want to cancel your payment? Your current cart will be discarded</string>
+    <string name="dialog_delete_book">Are you sure want to delete this book? You can\'t undo this action</string>
+    <string name="dialog_cancel_add_book">Are you sure want cancel add this book? Your changes will be discarded</string>
+    <string name="dialog_cancel_update_book">Are you sure want cancel update this book? Your changes will be discarded</string>
     <string name="button_yes">Yes</string>
     <string name="button_cancel">Cancel</string>
     <string name="text_card_book_count_fragment_home">Books Available</string>
@@ -94,4 +97,23 @@
     <string name="text_search_hint_fragment_book_category">Search a book category…</string>
     <string name="text_search_hint_fragment_purchase">Search a purchase number…</string>
     <string name="text_title_purchase_fragment">Purchase History</string>
+    <string name="text_title_activity_edit_book">Edit Book</string>
+    <string name="text_title_book_cover_activity_edit_book">Book Cover</string>
+    <string name="button_edit">Edit</string>
+    <string name="text_title_book_title_activity_edit_book">Title</string>
+    <string name="text_hint_input_book_title">Book title</string>
+    <string name="text_title_book_category_activity_edit_book">Category</string>
+    <string name="text_hint_input_book_category">Select a book category</string>
+    <string name="text_title_book_author_activity_edit_book">Author</string>
+    <string name="text_hint_input_book_author">Book author name</string>
+    <string name="text_title_book_price_activity_edit_book">Price</string>
+    <string name="text_hint_input_book_price">Book price</string>
+    <string name="text_title_book_synopsis_activity_edit_book">Synopsis</string>
+    <string name="text_hint_input_book_synopsis">Book synopsis</string>
+    <string name="text_title_book_status_activity_edit_book">Status</string>
+    <string name="text_hint_input_book_status">Select a book status</string>
+    <string name="text_button_save">Save</string>
+    <string name="text_button_update">Update</string>
+    <string name="text_title_activity_add_book">Add New Book</string>
+    <string name="text_error_input_book_image_cover">Please insert a book cover</string>
 </resources>

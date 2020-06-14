@@ -7,6 +7,6 @@ import retrofit2.http.Header
 
 interface RemoteTransactionDAO {
 
-    @GET("/api/rest/transaction/findByUserId/${AppConfig.OAUTH_DEFAULT_USER_ID}")
+    @GET("/api/rest/transaction/findByUserId/${AppConfig.OAUTH_DEFAULT_CUSTOMER_ID}")
     suspend fun getCheckoutHistory(@Header("Authorization") authorization: String): List<Transaction>
 }

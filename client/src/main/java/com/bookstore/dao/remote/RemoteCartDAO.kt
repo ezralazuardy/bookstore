@@ -9,7 +9,7 @@ import retrofit2.http.*
 
 interface RemoteCartDAO {
 
-    @GET("/api/rest/cart/findByUserId/${AppConfig.OAUTH_DEFAULT_USER_ID}")
+    @GET("/api/rest/cart/findByUserId/${AppConfig.OAUTH_DEFAULT_CUSTOMER_ID}")
     suspend fun getCart(@Header("Authorization") authorization: String) : Cart
 
     @POST("/api/rest/cart/saveOrUpdate")
