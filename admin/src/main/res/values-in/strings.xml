@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Book Store Admin</string>
+    <string name="app_name">Book Store Admin</string>
     <string name="title_home">Home</string>
     <string name="title_book">Books</string>
     <string name="title_book_category">Categories</string>
