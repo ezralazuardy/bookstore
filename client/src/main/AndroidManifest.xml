@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme.SignIn" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.search.SearchBookActivity" />
-        <activity android:name=".ui.book.BookDetailActivity" />
+        <activity android:name=".ui.book.DetailBookActivity" />
         <activity android:name=".ui.wishlist.WishlistActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.checkout.CheckoutActivity" />

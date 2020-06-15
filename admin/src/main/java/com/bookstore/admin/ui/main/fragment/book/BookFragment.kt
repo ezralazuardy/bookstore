@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookstore.admin.R
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.response.book.Book
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.ui.book.add.AddBookActivity
 import com.bookstore.admin.ui.book.edit.EditBookActivity
 import com.bookstore.admin.ui.main.MainViewModel

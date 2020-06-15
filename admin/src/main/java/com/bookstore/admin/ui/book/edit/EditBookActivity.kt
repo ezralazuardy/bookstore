@@ -8,15 +8,14 @@ import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bookstore.admin.R
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.Book
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.ui.main.MainViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -245,12 +244,7 @@ class EditBookActivity : AppCompatActivity() {
                     }
                 }
                 setContent(book)
-            } else {
-                Log.e(this::class.java.simpleName, "Error happened, can't receive book data")
-                Toast.makeText(this, "Error happened, can't receive book data", Toast.LENGTH_SHORT)
-                    .show()
-                finish()
-            }
+            } else throw IllegalArgumentException("Book have'nt been set on EditBookActivity")
         }
     }
 

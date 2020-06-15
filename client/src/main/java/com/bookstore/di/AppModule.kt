@@ -6,7 +6,7 @@ import com.bookstore.repository.BookRepository
 import com.bookstore.repository.CartRepository
 import com.bookstore.repository.TransactionRepository
 import com.bookstore.repository.UserRepository
-import com.bookstore.ui.book.BookDetailViewModel
+import com.bookstore.ui.book.DetailBookViewModel
 import com.bookstore.ui.checkout.CheckoutViewModel
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.main.fragment.book.BookViewModel
@@ -39,7 +39,7 @@ val appModule = module {
     viewModel { MainViewModel(get(), get()) }
     viewModel { BookViewModel(get(), get()) }
     viewModel { CartViewModel(get(), get()) }
-    viewModel { BookDetailViewModel(get(), get(), get()) }
+    viewModel { DetailBookViewModel(get(), get(), get()) }
     viewModel { SearchBookViewModel(get(), get()) }
     viewModel { WishlistViewModel(get(), get()) }
     viewModel { CheckoutViewModel(get(), get(), get()) }

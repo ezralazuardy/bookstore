@@ -10,7 +10,7 @@ import com.bookstore.R
 import com.bookstore.constant.BookStatus
 import com.bookstore.model.response.book.Book
 import com.bookstore.model.status.RetrofitStatus
-import com.bookstore.ui.book.BookDetailActivity
+import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.wishlist.adapter.WishlistAdapter
 import com.bookstore.ui.wishlist.adapter.WishlistItemListener
@@ -87,8 +87,8 @@ class WishlistActivity : AppCompatActivity(), WishlistItemListener {
     }
 
     override fun onItemClick(book: Book) {
-        val intent = Intent(this, BookDetailActivity::class.java)
-        startActivity(intent.putExtra(BookDetailActivity.DATA, book))
+        val intent = Intent(this, DetailBookActivity::class.java)
+        startActivity(intent.putExtra(DetailBookActivity.DATA, book))
     }
 
     override fun onBackPressed() {

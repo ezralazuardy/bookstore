@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.admin.constant.SessionStatus
 import com.bookstore.admin.model.formatted.user.SessionResponse
-import com.bookstore.admin.model.status.SessionStatus
 import com.bookstore.admin.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

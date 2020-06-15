@@ -13,7 +13,7 @@ import com.bookstore.R
 import com.bookstore.model.response.transaction.Transaction
 import com.bookstore.model.response.transaction.TransactionDetail
 import com.bookstore.model.status.RetrofitStatus
-import com.bookstore.ui.book.BookDetailActivity
+import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.checkout.CheckoutViewModel
 import com.bookstore.ui.checkout.fragment.payment.adapter.PaymentAdapter
 import com.bookstore.ui.checkout.fragment.payment.adapter.PaymentItemListener
@@ -83,8 +83,8 @@ class PaymentFragment : Fragment(), PaymentItemListener {
     }
 
     override fun onItemClick(transactionDetail: TransactionDetail) {
-        val intent = Intent(requireContext(), BookDetailActivity::class.java)
-        startActivity(intent.putExtra(BookDetailActivity.DATA, transactionDetail.bookModel))
+        val intent = Intent(requireContext(), DetailBookActivity::class.java)
+        startActivity(intent.putExtra(DetailBookActivity.DATA, transactionDetail.bookModel))
     }
 
     private fun performPayment() = checkoutViewModel.performPayment(transaction.id)

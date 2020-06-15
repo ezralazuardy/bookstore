@@ -1,5 +1,6 @@
 package com.bookstore.admin.ui.main.fragment.purchase
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookstore.admin.R
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.response.transaction.Transaction
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.ui.main.MainViewModel
 import com.bookstore.admin.ui.main.fragment.purchase.adapter.PurchaseAdapter
 import com.bookstore.admin.ui.main.fragment.purchase.adapter.PurchaseItemListener
+import com.bookstore.admin.ui.purchase.DetailPurchaseActivity
 import com.bookstore.admin.utils.ViewHelper.hide
 import com.bookstore.admin.utils.ViewHelper.hideKeyboard
 import com.bookstore.admin.utils.ViewHelper.show
@@ -94,7 +96,12 @@ class PurchaseFragment : Fragment(), PurchaseItemListener {
     }
 
     override fun onItemClick(transaction: Transaction) {
-
+        startActivity(
+            Intent(requireContext(), DetailPurchaseActivity::class.java).putExtra(
+                DetailPurchaseActivity.DATA,
+                transaction
+            )
+        )
     }
 
     override fun onItemDraw(transactions: List<Transaction>) {

@@ -6,13 +6,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.formatted.book.BookCategoryResponse
 import com.bookstore.admin.model.formatted.book.DeleteBookResponse
 import com.bookstore.admin.model.formatted.book.UpdateBookResponse
 import com.bookstore.admin.model.formatted.book.UploadBookImageResponse
 import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.BookCategory
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.repository.BookRepository
 import com.bookstore.admin.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers

@@ -25,4 +25,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.ProgressBar">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.ProgressBar.Indeterminate" parent="AppTheme.ProgressBar">
+        <item name="android:indeterminate">true</item>
+    </style>
+
+    <style name="AppTheme.ProgressBar.Indeterminate.Primary" parent="AppTheme.ProgressBar.Indeterminate">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 </resources>

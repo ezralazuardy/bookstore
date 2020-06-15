@@ -1,6 +1,8 @@
 package com.bookstore.admin.dao.remote
 
+import com.bookstore.admin.model.request.book.AddBookCategoryRequest
 import com.bookstore.admin.model.request.book.AddBookRequest
+import com.bookstore.admin.model.request.book.UpdateBookCategoryRequest
 import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.Book
 import com.bookstore.admin.model.response.book.BookCategory
@@ -13,9 +15,6 @@ interface RemoteBookDAO {
 
     @GET("/api/rest/book/findAll")
     suspend fun getBook(@Header("Authorization") authorization: String): List<Book>
-
-    @GET("/api/rest/book-category/findAll")
-    suspend fun getBookCategory(@Header("Authorization") authorization: String): List<BookCategory>
 
     @POST("/api/rest/book/uploadImage/{book_id}")
     @Multipart
@@ -41,5 +40,26 @@ interface RemoteBookDAO {
     suspend fun deleteBook(
         @Header("Authorization") authorization: String,
         @Path("book_id") bookId: Int
+    ): Response<ResponseBody>
+
+    @GET("/api/rest/book-category/findAll")
+    suspend fun getBookCategory(@Header("Authorization") authorization: String): List<BookCategory>
+
+    @POST("/api/rest/book-category/save")
+    suspend fun addBookCategory(
+        @Header("Authorization") authorization: String,
+        @Body addBookCategoryRequest: AddBookCategoryRequest
+    ): Response<ResponseBody>
+
+    @POST("/api/rest/book-category/update")
+    suspend fun updateBookCategory(
+        @Header("Authorization") authorization: String,
+        @Body updateBookCategoryRequest: UpdateBookCategoryRequest
+    ): Response<ResponseBody>
+
+    @DELETE("/api/rest/book-category/deleteById/{book_category_id}")
+    suspend fun deleteBookCategory(
+        @Header("Authorization") authorization: String,
+        @Path("book_category_id") bookCategoryId: Int
     ): Response<ResponseBody>
 }

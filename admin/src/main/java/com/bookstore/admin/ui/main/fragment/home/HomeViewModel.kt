@@ -6,10 +6,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.formatted.book.BookCategoryCountResponse
 import com.bookstore.admin.model.formatted.book.BookCountResponse
 import com.bookstore.admin.model.formatted.transaction.PurchaseCountResponse
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.repository.BookRepository
 import com.bookstore.admin.repository.TransactionRepository
 import com.bookstore.admin.utils.Retrofit.printRetrofitError

@@ -1,6 +1,6 @@
 package com.bookstore.admin.model.formatted.transaction
 
-import com.bookstore.admin.model.status.RetrofitStatus
+import com.bookstore.admin.constant.RetrofitStatus
 
 data class PurchaseCountResponse(
     val status: RetrofitStatus = RetrofitStatus.UNKNOWN,

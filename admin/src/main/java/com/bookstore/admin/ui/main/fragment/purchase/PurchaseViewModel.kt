@@ -6,8 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.formatted.transaction.PurchaseListResponse
-import com.bookstore.admin.model.status.RetrofitStatus
 import com.bookstore.admin.repository.TransactionRepository
 import com.bookstore.admin.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +24,7 @@ class PurchaseViewModel(
 
     fun getPurchaseList() = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val result = transactionRepository.getCheckoutHistory()
+            val result = transactionRepository.getCheckoutHistory().sortedByDescending { it.id }
             if (result.isNotEmpty()) _purchaseListResponse.postValue(
                 PurchaseListResponse(
                     RetrofitStatus.SUCCESS,

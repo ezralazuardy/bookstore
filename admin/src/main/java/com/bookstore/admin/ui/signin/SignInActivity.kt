@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import com.bookstore.admin.R
 import com.bookstore.admin.config.AppConfig.OAUTH_DEFAULT_ACCOUNT_PASSWORD
 import com.bookstore.admin.config.AppConfig.OAUTH_DEFAULT_ACCOUNT_USERNAME
-import com.bookstore.admin.model.status.RetrofitStatus
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.ui.main.MainActivity
 import com.bookstore.admin.utils.ViewHelper.invisible
 import com.bookstore.admin.utils.ViewHelper.show

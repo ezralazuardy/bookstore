@@ -29,13 +29,15 @@
             android:name=".ui.signin.SignInActivity"
             android:theme="@style/AppTheme.SignIn" />
         <activity
-            android:name=".ui.book.edit.EditBookActivity"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".ui.book.add.AddBookActivity"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.book.edit.EditBookActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.book.detail.DetailBookActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
+        <activity android:name=".ui.purchase.DetailPurchaseActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

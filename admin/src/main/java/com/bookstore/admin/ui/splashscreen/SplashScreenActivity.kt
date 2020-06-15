@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.bookstore.admin.model.status.SessionStatus
+import com.bookstore.admin.constant.SessionStatus
 import com.bookstore.admin.ui.main.MainActivity
 import com.bookstore.admin.ui.signin.SignInActivity
 import org.koin.android.viewmodel.ext.android.viewModel

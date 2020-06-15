@@ -2,7 +2,9 @@ package com.bookstore.admin.repository
 
 import com.bookstore.admin.constant.BookStatus
 import com.bookstore.admin.dao.remote.RemoteBookDAO
+import com.bookstore.admin.model.request.book.AddBookCategoryRequest
 import com.bookstore.admin.model.request.book.AddBookRequest
+import com.bookstore.admin.model.request.book.UpdateBookCategoryRequest
 import com.bookstore.admin.model.request.book.UpdateBookRequest
 import com.bookstore.admin.model.response.book.Book
 import com.bookstore.admin.model.response.book.BookCategory
@@ -22,11 +24,6 @@ class BookRepository(
 
     suspend fun getBook(): List<Book> = userRepository.checkSession().let {
         if (it != null) return bookDAO.getBook(it.asBearer())
-        else throw SessionHelper.unauthorizedException
-    }
-
-    suspend fun getBookCategory(): List<BookCategory> = userRepository.checkSession().let {
-        if (it != null) return bookDAO.getBookCategory(it.asBearer())
         else throw SessionHelper.unauthorizedException
     }
 
@@ -57,6 +54,32 @@ class BookRepository(
     suspend fun deleteBook(bookId: Int): Response<ResponseBody> =
         userRepository.checkSession().let {
             if (it != null) return bookDAO.deleteBook(it.asBearer(), bookId)
+            else throw SessionHelper.unauthorizedException
+        }
+
+    suspend fun getBookCategory(): List<BookCategory> = userRepository.checkSession().let {
+        if (it != null) return bookDAO.getBookCategory(it.asBearer())
+        else throw SessionHelper.unauthorizedException
+    }
+
+    suspend fun addBookCategory(addBookCategoryRequest: AddBookCategoryRequest): Response<ResponseBody> =
+        userRepository.checkSession().let {
+            if (it != null) return bookDAO.addBookCategory(it.asBearer(), addBookCategoryRequest)
+            else throw SessionHelper.unauthorizedException
+        }
+
+    suspend fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest): Response<ResponseBody> =
+        userRepository.checkSession().let {
+            if (it != null) return bookDAO.updateBookCategory(
+                it.asBearer(),
+                updateBookCategoryRequest
+            )
+            else throw SessionHelper.unauthorizedException
+        }
+
+    suspend fun deleteBookCategory(bookCategoryId: Int): Response<ResponseBody> =
+        userRepository.checkSession().let {
+            if (it != null) return bookDAO.deleteBookCategory(it.asBearer(), bookCategoryId)
             else throw SessionHelper.unauthorizedException
         }
 }

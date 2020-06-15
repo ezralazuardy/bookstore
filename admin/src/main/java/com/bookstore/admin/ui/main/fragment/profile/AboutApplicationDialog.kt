@@ -12,10 +12,12 @@ import com.bookstore.admin.config.AppConfig
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_about_application.*
 
-class AboutApplicationDialog : BottomSheetDialogFragment() {
+class AboutApplicationDialog private constructor() : BottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "AboutApplicationDialog"
+
+        fun createInstance(): AboutApplicationDialog = AboutApplicationDialog()
     }
 
     override fun onCreateView(

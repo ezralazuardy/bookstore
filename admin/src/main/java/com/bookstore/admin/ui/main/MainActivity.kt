@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bookstore.admin.R
-import com.bookstore.admin.model.status.SessionStatus
+import com.bookstore.admin.constant.SessionStatus
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 

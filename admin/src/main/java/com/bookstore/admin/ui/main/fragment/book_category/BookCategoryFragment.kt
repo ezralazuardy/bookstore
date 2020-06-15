@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bookstore.admin.R
+import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.response.book.BookCategory
-import com.bookstore.admin.model.status.RetrofitStatus
+import com.bookstore.admin.ui.book_category.add.AddBookCategoryDialog
+import com.bookstore.admin.ui.book_category.edit.EditBookCategoryDialog
 import com.bookstore.admin.ui.main.MainViewModel
 import com.bookstore.admin.ui.main.fragment.book_category.adapter.BookCategoryAdapter
 import com.bookstore.admin.ui.main.fragment.book_category.adapter.BookCategoryItemListener
@@ -61,7 +63,10 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
             showSearchBar()
         }
         button_add.setOnClickListener {
-
+            AddBookCategoryDialog.createInstance().show(
+                requireActivity().supportFragmentManager,
+                AddBookCategoryDialog.TAG
+            )
         }
         button_clear_search.setOnClickListener {
             hideSearchBar()
@@ -97,7 +102,10 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
     }
 
     override fun onItemClick(bookCategory: BookCategory) {
-
+        EditBookCategoryDialog.createInstance(bookCategory).show(
+            requireActivity().supportFragmentManager,
+            EditBookCategoryDialog.TAG
+        )
     }
 
     override fun onItemDraw(bookCategories: List<BookCategory>) {

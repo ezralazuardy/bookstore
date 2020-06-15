@@ -50,7 +50,7 @@ class PurchaseAdapter(
 
         fun bind(transaction: Transaction) {
             itemView.text_number.text = transaction.invoiceNumber.trim()
-            itemView.text_date.text = transaction.updatedTime.trim()
+            itemView.text_date.text = transaction.createdTime.trim()
             itemView.card.setOnClickListener {
                 purchaseItemListener.onItemClick(transaction)
             }

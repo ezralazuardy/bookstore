@@ -14,7 +14,7 @@ import com.bookstore.R
 import com.bookstore.constant.CartStatus
 import com.bookstore.model.response.cart.CartDetail
 import com.bookstore.model.status.RetrofitStatus
-import com.bookstore.ui.book.BookDetailActivity
+import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.checkout.CheckoutActivity
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.main.fragment.cart.adapter.CartAdapter
@@ -114,8 +114,8 @@ class CartFragment : Fragment(), CartItemListener {
     }
 
     override fun onItemClick(cartDetail: CartDetail) {
-        val intent = Intent(requireContext(), BookDetailActivity::class.java)
-        startActivity(intent.putExtra(BookDetailActivity.DATA, cartDetail.bookModel))
+        val intent = Intent(requireContext(), DetailBookActivity::class.java)
+        startActivity(intent.putExtra(DetailBookActivity.DATA, cartDetail.bookModel))
     }
 
     override fun onItemRemove(position: Int, cartDetail: CartDetail) {

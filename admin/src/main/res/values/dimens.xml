@@ -8,6 +8,4 @@
     <dimen name="image_size_profile">60dp</dimen>
     <dimen name="border_size_profile_image">1dp</dimen>
     <dimen name="image_size_item_list_book">120dp</dimen>
-    <dimen name="text_size_item_list_cart_name">18sp</dimen>
-    <dimen name="text_size_item_list_cart_price">16sp</dimen>
 </resources>

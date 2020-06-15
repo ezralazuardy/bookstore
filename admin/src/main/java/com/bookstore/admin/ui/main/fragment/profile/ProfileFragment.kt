@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), SettingsActivity::class.java))
         }
         row_menu_about.setOnClickListener {
-            AboutApplicationDialog().show(
+            AboutApplicationDialog.createInstance().show(
                 requireActivity().supportFragmentManager,
                 AboutApplicationDialog.TAG
             )

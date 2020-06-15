@@ -12,7 +12,7 @@ data class User(
     val fullName: String,
     val id: Int,
     val phoneNumber: String,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String,
     val username: String
 ) : Parcelable

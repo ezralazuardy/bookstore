@@ -11,6 +11,6 @@ data class TransactionDetail(
     val createdTime: String,
     val id: Int,
     val price: Double,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String
 ) : Parcelable
