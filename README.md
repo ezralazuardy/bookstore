@@ -15,7 +15,7 @@ Here some app's features :
 - Book detail
 - Book checkout
 - Add to favorite
-- Payment via wallet internal
+- Payment via bank transfer (dummy)
 - Purchase confirmation
 - Purchase status
 
@@ -37,6 +37,9 @@ Some library that used to develop this app :
 - [Kotlin coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [StfalconImageViewer](https://github.com/stfalcon-studio/StfalconImageViewer)
 - [CircleImageView](https://github.com/hdodenhof/CircleImageView)
+- [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+- [QuickPermissions](https://github.com/QuickPermissions/QuickPermissions-Kotlin)
+- [Matisse](https://github.com/zhihu/Matisse)
 - [Retrofit](https://square.github.io/retrofit/)
 - [Shimmer](http://facebook.github.io/shimmer-android/)
 - [Room](https://developer.android.com/topic/libraries/architecture/room)
