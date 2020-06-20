@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.constant.BookStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.book.BookResponse
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.BookRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers

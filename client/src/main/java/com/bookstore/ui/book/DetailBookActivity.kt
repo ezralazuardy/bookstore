@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bookstore.R
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.response.book.Book
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.ui.main.MainViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource

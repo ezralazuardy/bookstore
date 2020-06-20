@@ -11,8 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookstore.R
 import com.bookstore.constant.CartStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.response.cart.CartDetail
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.checkout.CheckoutViewModel
 import com.bookstore.ui.checkout.fragment.checkout.adapter.CheckoutAdapter

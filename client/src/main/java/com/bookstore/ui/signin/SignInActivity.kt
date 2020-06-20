@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bookstore.R
-import com.bookstore.model.status.RetrofitStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.ui.main.MainActivity
 import com.bookstore.utils.ViewHelper.invisible
 import com.bookstore.utils.ViewHelper.show

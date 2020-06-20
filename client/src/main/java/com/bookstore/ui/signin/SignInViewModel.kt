@@ -5,9 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.user.SignInResponse
 import com.bookstore.model.request.user.AccessTokenRequest
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.UserRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers

@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookstore.R
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.response.transaction.Transaction
 import com.bookstore.model.response.transaction.TransactionDetail
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.checkout.CheckoutViewModel
 import com.bookstore.ui.checkout.fragment.payment.adapter.PaymentAdapter

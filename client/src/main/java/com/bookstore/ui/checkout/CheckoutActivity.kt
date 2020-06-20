@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import com.bookstore.R
-import com.bookstore.model.status.RetrofitStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.ui.checkout.fragment.checkout.CheckoutFragment
 import com.bookstore.ui.checkout.fragment.payment.PaymentFragment
 import com.bookstore.ui.checkout.fragment.payment_success.PaymentSuccessFragment

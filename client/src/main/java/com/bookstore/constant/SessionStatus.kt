@@ -1,4 +1,4 @@
-package com.bookstore.model.status
+package com.bookstore.constant
 
 enum class SessionStatus {
     UNKNOWN, AVAILABLE, UNAVAILABLE

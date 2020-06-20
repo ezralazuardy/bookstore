@@ -8,8 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bookstore.R
 import com.bookstore.constant.BookStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.response.book.Book
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.ui.book.DetailBookActivity
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.wishlist.adapter.WishlistAdapter

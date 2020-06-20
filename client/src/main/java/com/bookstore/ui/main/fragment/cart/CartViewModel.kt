@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.constant.CartStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.cart.CartResponse
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.CartRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers
@@ -48,8 +48,12 @@ class CartViewModel(
             cart.details.firstOrNull { it.bookModel.id == bookId }?.id.let { detailId ->
                 if(detailId != null) {
                     val result = cartRepository.removeBookFromCart(detailId)
-                    if(result.isSuccessful) _removeCartResponse.postValue(CartResponse(RetrofitStatus.SUCCESS))
-                    else  {
+                    if (result.isSuccessful) _removeCartResponse.postValue(
+                        CartResponse(
+                            RetrofitStatus.SUCCESS
+                        )
+                    )
+                    else {
                         _removeCartResponse.postValue(CartResponse(RetrofitStatus.FAILURE))
                         Log.e(this::class.java.simpleName, result.toString())
                     }

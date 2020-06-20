@@ -6,12 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.constant.PaymentStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.cart.CartResponse
 import com.bookstore.model.formatted.transaction.CheckoutResponse
 import com.bookstore.model.formatted.transaction.PaymentResponse
 import com.bookstore.model.request.transaction.CheckoutRequest
 import com.bookstore.model.request.transaction.PaymentRequest
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.CartRepository
 import com.bookstore.repository.TransactionRepository
 import com.bookstore.utils.Retrofit.printRetrofitError

@@ -40,10 +40,19 @@ object Retrofit {
 
     fun Throwable.printRetrofitError() {
         this.printStackTrace()
-        when(this) {
-            is IOException -> Log.e(this::class.java.simpleName, "Network Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
-            is HttpException -> Log.e(this::class.java.simpleName, "HTTP Exception happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
-            else -> Log.e(this::class.java.simpleName, "Unknown Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}")
+        when (this) {
+            is IOException -> Log.e(
+                this::class.java.simpleName,
+                "Network Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}"
+            )
+            is HttpException -> Log.e(
+                this::class.java.simpleName,
+                "HTTP Exception happened in Retrofit | cause: ${this.cause} | message: ${this.message}"
+            )
+            else -> Log.e(
+                this::class.java.simpleName,
+                "Unknown Error happened in Retrofit | cause: ${this.cause} | message: ${this.message}"
+            )
         }
     }
 }

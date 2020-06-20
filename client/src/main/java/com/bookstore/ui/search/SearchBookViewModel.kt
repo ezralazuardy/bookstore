@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.constant.BookStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.book.SearchBookResponse
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.BookRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
 import kotlinx.coroutines.Dispatchers
@@ -25,8 +25,13 @@ class SearchBookViewModel(
 
     fun getBook() = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val result = bookRepository.getBook().sortedBy { it.id }.filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
-            if(result.isNotEmpty()) _searchBookResponse.postValue(SearchBookResponse(RetrofitStatus.SUCCESS, result))
+            val result = bookRepository.getBook().sortedBy { it.id }
+                .filter { it.bookStatus == BookStatus.FOR_SELL.toString() }
+            if (result.isNotEmpty()) _searchBookResponse.postValue(
+                SearchBookResponse(
+                    RetrofitStatus.SUCCESS, result
+                )
+            )
             else {
                 _searchBookResponse.postValue(SearchBookResponse(RetrofitStatus.EMPTY))
                 Log.e(this::class.java.simpleName, result.toString())

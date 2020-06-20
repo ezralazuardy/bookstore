@@ -7,11 +7,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bookstore.constant.CartStatus
+import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.formatted.book.FavouriteBookResponse
 import com.bookstore.model.formatted.cart.CartResponse
 import com.bookstore.model.request.book.FavouriteBookRequest
 import com.bookstore.model.request.cart.CartRequest
-import com.bookstore.model.status.RetrofitStatus
 import com.bookstore.repository.BookRepository
 import com.bookstore.repository.CartRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
@@ -150,9 +150,17 @@ class DetailBookViewModel(
                     val result = bookRepository.removeBookFromFavourite(detailId)
                     if(result.isSuccessful) {
                         favouriteBookAdded = false
-                        _removeFavouriteBookResponse.postValue(FavouriteBookResponse(RetrofitStatus.SUCCESS))
+                        _removeFavouriteBookResponse.postValue(
+                            FavouriteBookResponse(
+                                RetrofitStatus.SUCCESS
+                            )
+                        )
                     } else {
-                        _removeFavouriteBookResponse.postValue(FavouriteBookResponse(RetrofitStatus.FAILURE))
+                        _removeFavouriteBookResponse.postValue(
+                            FavouriteBookResponse(
+                                RetrofitStatus.FAILURE
+                            )
+                        )
                         Log.e(this::class.java.simpleName, result.toString())
                     }
                 } else {
