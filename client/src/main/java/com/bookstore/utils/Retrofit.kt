@@ -24,7 +24,14 @@ object Retrofit {
                     .addInterceptor {
                         val original = it.request()
                         val request = original.newBuilder().apply {
-                            if(original.header("Authorization") == null) header("Authorization", Credentials.basic(OAUTH_DEFAULT_CLIENT_ID, OAUTH_DEFAULT_CLIENT_SECRET))
+                            if (original.header("Authorization") == null)
+                                header(
+                                    "Authorization",
+                                    Credentials.basic(
+                                        OAUTH_DEFAULT_CLIENT_ID,
+                                        OAUTH_DEFAULT_CLIENT_SECRET
+                                    )
+                                )
                             header("User-Agent", OAUTH_DEFAULT_USER_AGENT)
                             method(original.method(), original.body())
                         }.build()

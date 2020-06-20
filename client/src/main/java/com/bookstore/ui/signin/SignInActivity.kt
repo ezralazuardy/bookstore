@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bookstore.R
+import com.bookstore.config.AppConfig.OAUTH_DEFAULT_ACCOUNT_PASSWORD
+import com.bookstore.config.AppConfig.OAUTH_DEFAULT_ACCOUNT_USERNAME
 import com.bookstore.constant.RetrofitStatus
 import com.bookstore.ui.main.MainActivity
 import com.bookstore.utils.ViewHelper.invisible
@@ -37,12 +39,24 @@ class SignInActivity : AppCompatActivity() {
         button_signin.setOnClickListener {
             val username = input_username.editText?.text.toString()
             val password = input_password.editText?.text.toString()
-            input_username.error = if(username.isEmpty()) "Please type your username" else null
-            input_password.error = if(password.isEmpty()) "Please type your password" else null
-            if(username.isNotEmpty() && password.isNotEmpty()) {
-                loading.show()
-                button_signin.isEnabled  = false
-                signInViewModel.signIn(username.trim(), password.trim())
+            input_username.error = if (username.isEmpty()) "Please type your username" else null
+            input_password.error = if (password.isEmpty()) "Please type your password" else null
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                if (username == OAUTH_DEFAULT_ACCOUNT_USERNAME && password == OAUTH_DEFAULT_ACCOUNT_PASSWORD) {
+                    loading.show()
+                    button_signin.isEnabled = false
+                    signInViewModel.signIn(username.trim(), password.trim())
+                } else {
+                    input_username.error =
+                        if (username != OAUTH_DEFAULT_ACCOUNT_USERNAME) "We can't find your username" else null
+                    input_password.error =
+                        if (password != OAUTH_DEFAULT_ACCOUNT_PASSWORD) "Your password is wrong" else null
+                    Snackbar.make(
+                        parent_layout,
+                        "Your username or password is wrong, please recheck",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

@@ -9,7 +9,8 @@ import retrofit2.Response
 object SessionHelper {
 
     val unauthorizedException by lazy {
-        val response: Response<AccessToken> = Response.error(401, ResponseBody.create(MediaType.get("text"), "null"))
+        val response: Response<AccessToken> =
+            Response.error(401, ResponseBody.create(MediaType.get("text"), "null"))
         HttpException(response)
     }
 
