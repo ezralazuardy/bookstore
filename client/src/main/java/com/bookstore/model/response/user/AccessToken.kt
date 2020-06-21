@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = AppConfig.ROOM_DEFAULT_SESSION_TABLE_NAME)
 data class AccessToken(
-    @PrimaryKey @ColumnInfo(name = "id") val id: Int = 0,
+    @PrimaryKey @ColumnInfo(name = "id") val id: Long = 0,
     @ColumnInfo(name = "access_token") @SerializedName("access_token") val accessToken: String,
     @ColumnInfo(name = "expires_in") @SerializedName("expires_in") val expiresIn: Int,
     @ColumnInfo(name = "jti") @SerializedName("jti") val jti: String,
