@@ -27,7 +27,7 @@ val appModule = module {
     single { RemoteDatabase.bookDAO }
     single { RemoteDatabase.cartDAO }
     single { RemoteDatabase.transactionDAO }
-    single { LocalDatabase.getDatabase(get()).userDAO }
+    single { LocalDatabase.userDAO }
 
     // Repository
     single { UserRepository(get(), get()) }

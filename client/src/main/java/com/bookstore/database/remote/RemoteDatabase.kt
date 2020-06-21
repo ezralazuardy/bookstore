@@ -8,19 +8,12 @@ import com.bookstore.utils.Retrofit
 
 object RemoteDatabase {
 
-    val userDAO: RemoteUserDAO by lazy {
-        Retrofit.getClient().create(RemoteUserDAO::class.java)
-    }
+    val userDAO: RemoteUserDAO = Retrofit.getClient().create(RemoteUserDAO::class.java)
 
-    val bookDAO: RemoteBookDAO by lazy {
-        Retrofit.getClient().create(RemoteBookDAO::class.java)
-    }
+    val bookDAO: RemoteBookDAO = Retrofit.getClient().create(RemoteBookDAO::class.java)
 
-    val cartDAO: RemoteCartDAO by lazy {
-        Retrofit.getClient().create(RemoteCartDAO::class.java)
-    }
+    val cartDAO: RemoteCartDAO = Retrofit.getClient().create(RemoteCartDAO::class.java)
 
-    val transactionDAO: RemoteTransactionDAO by lazy {
+    val transactionDAO: RemoteTransactionDAO =
         Retrofit.getClient().create(RemoteTransactionDAO::class.java)
-    }
 }
