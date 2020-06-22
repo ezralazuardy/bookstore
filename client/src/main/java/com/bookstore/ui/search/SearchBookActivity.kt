@@ -101,11 +101,15 @@ class SearchBookActivity : AppCompatActivity(), SearchBookItemListener {
             setHasFixedSize(true)
         }
         input_search.isEnabled = false
+    }
+
+    override fun onResume() {
+        super.onResume()
         searchBookViewModel.getBook()
     }
 
     override fun onItemSearch(empty: Boolean) {
-        if(empty) placeholder_empty.show() else placeholder_empty.hide()
+        if (empty) placeholder_empty.show() else placeholder_empty.hide()
     }
 
     override fun onItemClick(book: Book) {

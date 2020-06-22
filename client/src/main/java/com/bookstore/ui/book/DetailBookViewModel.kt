@@ -12,6 +12,7 @@ import com.bookstore.model.formatted.book.FavouriteBookResponse
 import com.bookstore.model.formatted.cart.CartResponse
 import com.bookstore.model.request.book.FavouriteBookRequest
 import com.bookstore.model.request.cart.CartRequest
+import com.bookstore.model.response.book.Book
 import com.bookstore.repository.BookRepository
 import com.bookstore.repository.CartRepository
 import com.bookstore.utils.Retrofit.printRetrofitError
@@ -25,6 +26,8 @@ class DetailBookViewModel(
     private val bookRepository: BookRepository
 ) : AndroidViewModel(application) {
 
+    var currentBook: Book? = null
+
     private val _cartResponse = MutableLiveData<CartResponse>()
     val cartResponse: LiveData<CartResponse> = _cartResponse
     var cartAdded = false
@@ -32,8 +35,8 @@ class DetailBookViewModel(
     fun getCart(bookId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = cartRepository.getCart()
-            result.details.firstOrNull { it.bookModel.id == bookId }?.let{
-                if(it.cartDetailStatus == CartStatus.CARTED.toString()) cartAdded = true
+            result.details.firstOrNull { it.bookModel.id == bookId }?.let {
+                cartAdded = it.cartDetailStatus == CartStatus.CARTED.toString()
             }
             _cartResponse.postValue(CartResponse(RetrofitStatus.SUCCESS, result))
         } catch(throwable: Throwable) {
@@ -89,11 +92,33 @@ class DetailBookViewModel(
                     Log.e(this::class.java.simpleName, "Can't find book id: $bookId in cart data")
                 }
             }
-        } catch(throwable: Throwable) {
-            if(throwable is HttpException && throwable.code() == 401)
+        } catch (throwable: Throwable) {
+            if (throwable is HttpException && throwable.code() == 401)
                 _removeCartResponse.postValue(CartResponse(RetrofitStatus.UNAUTHORIZED))
             else
                 _removeCartResponse.postValue(CartResponse(RetrofitStatus.FAILURE))
+            throwable.printRetrofitError()
+        }
+    }
+
+    private val _proceedToCheckoutResponse = MutableLiveData<CartResponse>()
+    val proceedToCheckoutResponse: LiveData<CartResponse> = _proceedToCheckoutResponse
+
+    fun proceedToCheckout(bookId: Int) = viewModelScope.launch(Dispatchers.IO) {
+        try {
+            val cartRequest = CartRequest(bookId)
+            val result = cartRepository.addBookToCart(cartRequest)
+            if (result.isSuccessful) {
+                _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.SUCCESS))
+            } else {
+                _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.FAILURE))
+                Log.e(this::class.java.simpleName, result.toString())
+            }
+        } catch (throwable: Throwable) {
+            if (throwable is HttpException && throwable.code() == 401)
+                _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.UNAUTHORIZED))
+            else
+                _proceedToCheckoutResponse.postValue(CartResponse(RetrofitStatus.FAILURE))
             throwable.printRetrofitError()
         }
     }
@@ -105,7 +130,8 @@ class DetailBookViewModel(
     fun getFavouriteBook(bookId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val result = bookRepository.getFavouriteBook()
-            if(result.details.firstOrNull { it.bookModel.id == bookId } != null) favouriteBookAdded = true
+            if (result.details.firstOrNull { it.bookModel.id == bookId } != null) favouriteBookAdded =
+                true
             _favouriteBookResponse.postValue(FavouriteBookResponse(RetrofitStatus.SUCCESS, result))
         } catch(throwable: Throwable) {
             if(throwable is HttpException && throwable.code() == 401)

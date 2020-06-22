@@ -1,6 +1,7 @@
 package com.bookstore.ui.book
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.lifecycle.Observer
 import com.bookstore.R
 import com.bookstore.constant.RetrofitStatus
 import com.bookstore.model.response.book.Book
+import com.bookstore.ui.checkout.CheckoutActivity
 import com.bookstore.ui.main.MainViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -40,6 +42,7 @@ class DetailBookActivity : AppCompatActivity() {
                     swipe_refresh_layout.isRefreshing = false
                     button_add_to_cart.isEnabled = true
                     button_add_to_cart_footer.isEnabled = true
+                    button_proceed_to_checkout_footer.isEnabled = true
                     when (it.status) {
                         RetrofitStatus.SUCCESS -> refreshAddToCartButtonIcon()
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
@@ -50,6 +53,7 @@ class DetailBookActivity : AppCompatActivity() {
                     swipe_refresh_layout.isRefreshing = false
                     button_add_to_cart.isEnabled = true
                     button_add_to_cart_footer.isEnabled = true
+                    button_proceed_to_checkout_footer.isEnabled = true
                     when (it.status) {
                         RetrofitStatus.SUCCESS -> {
                             button_add_to_cart.setImageResource(R.drawable.ic_shopping_cart_white)
@@ -70,6 +74,7 @@ class DetailBookActivity : AppCompatActivity() {
                     swipe_refresh_layout.isRefreshing = false
                     button_add_to_cart.isEnabled = true
                     button_add_to_cart_footer.isEnabled = true
+                    button_proceed_to_checkout_footer.isEnabled = true
                     when (it.status) {
                         RetrofitStatus.SUCCESS -> {
                             button_add_to_cart.setImageResource(R.drawable.ic_add_shopping_cart_white)
@@ -84,6 +89,27 @@ class DetailBookActivity : AppCompatActivity() {
                         }
                         RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
                         else -> showSnackbar("Error occurred when removing book from your cart")
+                    }
+                })
+                detailBookViewModel.proceedToCheckoutResponse.observe(this, Observer {
+                    swipe_refresh_layout.isRefreshing = false
+                    button_add_to_cart.isEnabled = true
+                    button_add_to_cart_footer.isEnabled = true
+                    button_proceed_to_checkout_footer.isEnabled = true
+                    when (it.status) {
+                        RetrofitStatus.SUCCESS -> {
+                            button_add_to_cart.setImageResource(R.drawable.ic_shopping_cart_white)
+                            button_add_to_cart_footer.apply {
+                                icon = ContextCompat.getDrawable(
+                                    this@DetailBookActivity,
+                                    R.drawable.ic_shopping_cart_white
+                                )
+                                text = getString(R.string.button_text_remove_from_cart)
+                            }
+                            startActivity(Intent(this, CheckoutActivity::class.java))
+                        }
+                        RetrofitStatus.UNAUTHORIZED -> mainViewModel.logout(this)
+                        else -> showSnackbar("Error occurred when adding book to your cart")
                     }
                 })
                 detailBookViewModel.favouriteBookResponse.observe(this, Observer {
@@ -124,10 +150,20 @@ class DetailBookActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        detailBookViewModel.currentBook?.let {
+            detailBookViewModel.getCart(it.id)
+            detailBookViewModel.getFavouriteBook(it.id)
+        }
+    }
+
     @SuppressLint("DefaultLocale")
     private fun setContent(book: Book) {
+        detailBookViewModel.currentBook = book
         button_add_to_cart.isEnabled = false
         button_add_to_cart_footer.isEnabled = false
+        button_proceed_to_checkout_footer.isEnabled = false
         button_favourite.isEnabled = false
         Glide.with(this)
             .load(book.imageUrl)
@@ -174,8 +210,9 @@ class DetailBookActivity : AppCompatActivity() {
         }
         swipe_refresh_layout.setOnRefreshListener {
             button_add_to_cart.isEnabled = false
-            button_add_to_cart_footer.isEnabled = false
             button_favourite.isEnabled = false
+            button_add_to_cart_footer.isEnabled = false
+            button_proceed_to_checkout_footer.isEnabled = false
             detailBookViewModel.getCart(book.id)
             detailBookViewModel.getFavouriteBook(book.id)
         }
@@ -185,11 +222,12 @@ class DetailBookActivity : AppCompatActivity() {
         button_add_to_cart_footer.setOnClickListener {
             performAddOrRemoveCart(book)
         }
+        button_proceed_to_checkout_footer.setOnClickListener {
+            performProceedToCheckout(book)
+        }
         button_favourite.setOnClickListener {
             performAddOrRemoveFavourite(book)
         }
-        detailBookViewModel.getCart(book.id)
-        detailBookViewModel.getFavouriteBook(book.id)
     }
 
     private fun refreshAddToCartButtonIcon() {
@@ -218,8 +256,17 @@ class DetailBookActivity : AppCompatActivity() {
         swipe_refresh_layout.isRefreshing = true
         button_add_to_cart.isEnabled = false
         button_add_to_cart_footer.isEnabled = false
+        button_proceed_to_checkout_footer.isEnabled = false
         if (detailBookViewModel.cartAdded) detailBookViewModel.removeBookFromCart(book.id)
         else detailBookViewModel.addBookToCart(book.id)
+    }
+
+    private fun performProceedToCheckout(book: Book) {
+        swipe_refresh_layout.isRefreshing = true
+        button_add_to_cart.isEnabled = false
+        button_add_to_cart_footer.isEnabled = false
+        button_proceed_to_checkout_footer.isEnabled = false
+        detailBookViewModel.proceedToCheckout(book.id)
     }
 
     private fun refreshAddToFavouriteButtonIcon() {

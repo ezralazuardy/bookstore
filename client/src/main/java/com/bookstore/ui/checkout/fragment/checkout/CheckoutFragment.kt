@@ -52,6 +52,7 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
                 else -> {
                     recyclerview.hide()
                     placeholder_empty.show()
+                    checkoutAdapter.setData(listOf())
                 }
             }
         })
@@ -78,6 +79,10 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
             swipe_refresh_layout.isRefreshing = true
             performCheckout()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         checkoutViewModel.getCart()
     }
 
@@ -89,6 +94,7 @@ class CheckoutFragment : Fragment(), CheckoutItemListener {
     override fun onItemDraw(cartDetails: List<CartDetail>) {
         val totalPrice = cartDetails.map { it.bookModel.price.toLong() }.sum()
         text_total_price.text = getString(R.string.text_item_cart_book_price, totalPrice)
+        button_checkout.isEnabled = cartDetails.isNotEmpty()
     }
 
     private fun performCheckout() {
