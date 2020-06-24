@@ -17,4 +17,7 @@ object AppConfig {
 
     const val ROOM_DEFAULT_DATABASE_NAME = "local_database"
     const val ROOM_DEFAULT_SESSION_TABLE_NAME = "session_table"
+
+    const val DATE_TIME_DATABASE_FORMAT = "dd-MM-yyyy HH:mm:ss"
+    const val DATE_TIME_DEFAULT_FORMAT = "EEEE, dd MMMM yyyy HH:mm:ss"
 }

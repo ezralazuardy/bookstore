@@ -12,7 +12,7 @@
     <string name="text_title_profile_fragment">Profilku</string>
     <string name="text_placeholder_empty_book">Wah, sepertinya kami belum menyiapkan buku apapun</string>
     <string name="text_placeholder_empty_wishlist">Kamu belum menambah buku apapun ke daftar favorit</string>
-    <string name="text_placeholder_empty_cart">Keranjang belanjamu kosong, coba tambahkan beberapa buku ke keranjang belanja dan kami akan menampilkannya disini</string>
+    <string name="text_placeholder_empty_cart">Keranjang belanjamu kosong</string>
     <string name="text_placeholder_empty_search_cart">Kami tidak dapat menemukan buku ini dalam keranjang belanjamu</string>
     <string name="text_placeholder_empty_search">Maaf, kami tidak dapat mencari buku ini</string>
     <string name="text_profile_name">User</string>
@@ -74,4 +74,13 @@
     <string name="dialog_cancel_payment">Kamu yakin ingin membatalkan pembayaran? Keranjang belanjamu saat ini akan dihapus</string>
     <string name="button_yes">Ya</string>
     <string name="button_cancel">Batal</string>
+    <string name="text_title_activity_purchase_detail">Detail Pembayaran</string>
+    <string name="text_title_invoice_number_activity_purchase_detail">Nomor Pembayaran</string>
+    <string name="text_title_transaction_date_activity_purchase_detail">Tanggal Transaksi</string>
+    <string name="text_title_items_activity_purchase_detail">Barang</string>
+    <string name="text_title_activity_purchase_history">Riwayat Pembayaran</string>
+    <string name="text_placeholder_empty_purchase_history">Riwayat pembayaranmu kosong</string>
+    <string name="text_profile_menu_purchase_history">Riwayat Pembayaran</string>
+    <string name="text_placeholder_empty_search_purchase_history">Kami tidak dapat menemukan nomor pembayaran ini di dalam riwayat pembayaranmu</string>
+    <string name="text_search_hint_activity_purchase_history">Cari nomor pembayaran…</string>
 </resources>

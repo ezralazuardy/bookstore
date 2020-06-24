@@ -7,10 +7,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TransactionDetail(
     val bookModel: Book,
-    val createdBy: String,
+    val createdBy: String?,
     val createdTime: String,
     val id: Int,
     val price: Double,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String
 ) : Parcelable

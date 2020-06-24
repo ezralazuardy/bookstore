@@ -76,4 +76,13 @@
     <string name="dialog_cancel_payment">Are you sure want to cancel your payment? Your current cart will be discarded</string>
     <string name="button_yes">Yes</string>
     <string name="button_cancel">Cancel</string>
+    <string name="text_title_activity_purchase_detail">Purchase Detail</string>
+    <string name="text_title_invoice_number_activity_purchase_detail">Invoice Number</string>
+    <string name="text_title_transaction_date_activity_purchase_detail">Transaction Date</string>
+    <string name="text_title_items_activity_purchase_detail">Items</string>
+    <string name="text_title_activity_purchase_history">Purchase History</string>
+    <string name="text_placeholder_empty_purchase_history">Your purchase history is empty</string>
+    <string name="text_profile_menu_purchase_history">Purchase History</string>
+    <string name="text_placeholder_empty_search_purchase_history">We can\'t find this invoice number in your purchase history</string>
+    <string name="text_search_hint_activity_purchase_history">Search a invoice number…</string>
 </resources>

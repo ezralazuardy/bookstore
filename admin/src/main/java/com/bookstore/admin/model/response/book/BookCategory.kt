@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class BookCategory(
     val code: String,
-    val createdBy: String,
+    val createdBy: String?,
     val createdTime: String,
     val id: Int,
     val name: String,

@@ -6,11 +6,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Cart(
-    val createdBy: String,
+    val createdBy: String?,
     val createdTime: String,
     val details: List<CartDetail>,
     val id: Int,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String,
     val userModel: User
 ) : Parcelable

@@ -8,9 +8,9 @@ import kotlinx.android.parcel.Parcelize
 data class CartDetail(
     val bookModel: Book,
     val cartDetailStatus: String,
-    val createdBy: String,
+    val createdBy: String?,
     val createdTime: String,
     val id: Int,
-    val updatedBy: String,
+    val updatedBy: String?,
     val updatedTime: String
 ) : Parcelable

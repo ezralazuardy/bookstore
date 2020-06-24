@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bookstore.R
 import com.bookstore.ui.main.MainViewModel
+import com.bookstore.ui.purchase.history.PurchaseHistoryActivity
 import com.bookstore.ui.settings.SettingsActivity
 import com.bookstore.ui.wishlist.WishlistActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -31,11 +32,17 @@ class ProfileFragment : Fragment() {
         row_menu_wishlist.setOnClickListener {
             startActivity(Intent(requireContext(), WishlistActivity::class.java))
         }
+        row_menu_purchase_history.setOnClickListener {
+            startActivity(Intent(requireContext(), PurchaseHistoryActivity::class.java))
+        }
         row_menu_settings.setOnClickListener {
             startActivity(Intent(requireContext(), SettingsActivity::class.java))
         }
         row_menu_about.setOnClickListener {
-            AboutApplicationDialog().show(requireActivity().supportFragmentManager, AboutApplicationDialog.TAG)
+            AboutApplicationDialog().show(
+                requireActivity().supportFragmentManager,
+                AboutApplicationDialog.TAG
+            )
         }
     }
 }

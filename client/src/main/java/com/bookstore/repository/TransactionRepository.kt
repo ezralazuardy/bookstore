@@ -14,13 +14,18 @@ class TransactionRepository(
 
     suspend fun performCheckout(checkoutRequest: CheckoutRequest) : Transaction =
         userRepository.checkSession().let {
-            if(it != null) return transactionDAO.performCheckout(it.asBearer(), checkoutRequest)
+            if (it != null) return transactionDAO.performCheckout(it.asBearer(), checkoutRequest)
             else throw SessionHelper.unauthorizedException
         }
 
-    suspend fun performPayment(paymentRequest: PaymentRequest) : Transaction =
+    suspend fun performPayment(paymentRequest: PaymentRequest): Transaction =
         userRepository.checkSession().let {
-            if(it != null) return transactionDAO.performPayment(it.asBearer(), paymentRequest)
+            if (it != null) return transactionDAO.performPayment(it.asBearer(), paymentRequest)
             else throw SessionHelper.unauthorizedException
         }
+
+    suspend fun getCheckoutHistory(): List<Transaction> = userRepository.checkSession().let {
+        if (it != null) return transactionDAO.getCheckoutHistory(it.asBearer())
+        else throw SessionHelper.unauthorizedException
+    }
 }

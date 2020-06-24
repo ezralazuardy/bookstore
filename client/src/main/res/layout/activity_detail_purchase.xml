@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bookstore.ui.purchase.detail.DetailPurchaseActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:padding="@dimen/activity_padding"
+                android:src="@drawable/ic_arrow_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_padding"
+                android:ellipsize="end"
+                android:fontFamily="@font/rubik_medium"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/text_title_activity_purchase_detail"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_app_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/button_back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center"
+                        android:layout_margin="@dimen/activity_padding"
+                        android:drawableStart="@drawable/ic_payment_black"
+                        android:drawablePadding="@dimen/activity_padding_half"
+                        android:fontFamily="@font/rubik_bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/text_title_invoice_number_activity_purchase_detail"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/button_copy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/activity_padding"
+                        android:src="@drawable/ic_file_copy_black" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/text_invoice_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginEnd="@dimen/activity_padding"
+                    android:layout_marginBottom="@dimen/activity_padding"
+                    android:fontFamily="@font/rubik"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_padding"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_padding"
+                    android:drawableStart="@drawable/ic_date_range_black"
+                    android:drawablePadding="@dimen/activity_padding_half"
+                    android:fontFamily="@font/rubik_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_title_transaction_date_activity_purchase_detail"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/text_transaction_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginEnd="@dimen/activity_padding"
+                    android:layout_marginBottom="@dimen/activity_padding"
+                    android:fontFamily="@font/rubik"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_padding"
+                android:layout_marginBottom="@dimen/activity_padding"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_padding"
+                    android:drawableStart="@drawable/ic_book_black"
+                    android:drawablePadding="@dimen/activity_padding_half"
+                    android:fontFamily="@font/rubik_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_title_items_activity_purchase_detail"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/activity_padding_half"
+                    android:paddingEnd="@dimen/activity_padding_half"
+                    android:paddingBottom="@dimen/activity_padding_half"
+                    tools:ignore="UnusedAttribute" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

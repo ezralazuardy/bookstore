@@ -32,6 +32,8 @@
         <activity android:name=".ui.wishlist.WishlistActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.checkout.CheckoutActivity" />
+        <activity android:name=".ui.purchase.history.PurchaseHistoryActivity" />
+        <activity android:name=".ui.purchase.detail.DetailPurchaseActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

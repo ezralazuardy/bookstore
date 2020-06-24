@@ -183,7 +183,7 @@
                     android:background="@color/colorDivider"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/row_menu_settings"
+                    android:id="@+id/row_menu_purchase_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
@@ -193,6 +193,49 @@
 
                     <ImageView
                         android:id="@+id/icon_row_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_payment_black"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik"
+                        android:textAlignment="textStart"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="@dimen/activity_padding"
+                        android:text="@string/text_profile_menu_purchase_history"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_1"
+                        app:layout_constraintStart_toEndOf="@id/icon_row_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginEnd="@dimen/activity_padding"
+                    android:background="@color/colorDivider"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/row_menu_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/activity_padding">
+
+                    <ImageView
+                        android:id="@+id/icon_row_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_settings_black"
@@ -211,10 +254,10 @@
                         android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/activity_padding"
                         android:text="@string/text_profile_menu_settings"
-                        app:layout_constraintTop_toTopOf="@id/icon_row_1"
-                        app:layout_constraintStart_toEndOf="@id/icon_row_1"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_2"
+                        app:layout_constraintStart_toEndOf="@id/icon_row_2"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_row_1" />
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -223,7 +266,7 @@
                     android:layout_height="0.5dp"
                     android:layout_marginStart="@dimen/activity_padding"
                     android:layout_marginEnd="@dimen/activity_padding"
-                    android:background="@color/colorDivider"/>
+                    android:background="@color/colorDivider" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/row_menu_about"
@@ -235,29 +278,29 @@
                     android:padding="@dimen/activity_padding">
 
                     <ImageView
-                        android:id="@+id/icon_row_2"
+                        android:id="@+id/icon_row_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_info_outline_black"
                         android:contentDescription="@null"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_info_outline_black"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik"
-                        android:textAlignment="textStart"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/black"
-                        android:includeFontPadding="false"
                         android:layout_marginStart="@dimen/activity_padding"
+                        android:fontFamily="@font/rubik"
+                        android:includeFontPadding="false"
                         android:text="@string/text_profile_menu_about"
-                        app:layout_constraintTop_toTopOf="@id/icon_row_2"
-                        app:layout_constraintStart_toEndOf="@id/icon_row_2"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/icon_row_3"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="@id/icon_row_2" />
+                        app:layout_constraintStart_toEndOf="@id/icon_row_3"
+                        app:layout_constraintTop_toTopOf="@id/icon_row_3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

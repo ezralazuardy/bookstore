@@ -105,7 +105,7 @@ class SearchBookActivity : AppCompatActivity(), SearchBookItemListener {
 
     override fun onResume() {
         super.onResume()
-        searchBookViewModel.getBook()
+        if (input_search.text.toString().isEmpty()) searchBookViewModel.getBook()
     }
 
     override fun onItemSearch(empty: Boolean) {

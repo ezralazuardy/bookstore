@@ -11,6 +11,7 @@ import com.bookstore.ui.checkout.CheckoutViewModel
 import com.bookstore.ui.main.MainViewModel
 import com.bookstore.ui.main.fragment.book.BookViewModel
 import com.bookstore.ui.main.fragment.cart.CartViewModel
+import com.bookstore.ui.purchase.history.PurchaseHistoryViewModel
 import com.bookstore.ui.search.SearchBookViewModel
 import com.bookstore.ui.signin.SignInViewModel
 import com.bookstore.ui.splashscreen.SplashScreenViewModel
@@ -43,4 +44,5 @@ val appModule = module {
     viewModel { SearchBookViewModel(get(), get()) }
     viewModel { WishlistViewModel(get(), get()) }
     viewModel { CheckoutViewModel(get(), get(), get()) }
+    viewModel { PurchaseHistoryViewModel(get(), get()) }
 }
