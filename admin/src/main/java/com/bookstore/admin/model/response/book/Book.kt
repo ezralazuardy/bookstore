@@ -10,7 +10,7 @@ data class Book(
     val bookCategoryId: Int,
     val bookStatus: String,
     val createdBy: String?,
-    val createdTime: String,
+    val createdTime: String?,
     val id: Int,
     val imageUrl: String?,
     val isbn: String?,
