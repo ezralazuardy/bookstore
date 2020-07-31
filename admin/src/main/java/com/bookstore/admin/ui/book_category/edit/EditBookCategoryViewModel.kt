@@ -1,7 +1,6 @@
 package com.bookstore.admin.ui.book_category.edit
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,12 +28,12 @@ class EditBookCategoryViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = bookRepository.updateBookCategory(updateBookCategoryRequest)
-                if (result.isSuccessful)
-                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.SUCCESS))
-                else {
-                    _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.FAILURE))
-                    Log.e(this::class.java.simpleName, result.toString())
-                }
+                _updateBookCategoryResponse.postValue(
+                    UpdateBookCategoryResponse(
+                        RetrofitStatus.SUCCESS,
+                        result
+                    )
+                )
             } catch (throwable: Throwable) {
                 if (throwable is HttpException && throwable.code() == 401)
                     _updateBookCategoryResponse.postValue(UpdateBookCategoryResponse(RetrofitStatus.UNAUTHORIZED))
@@ -50,23 +49,15 @@ class EditBookCategoryViewModel(
 
     fun deleteBookCategory(bookCategoryId: Int) = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val constraint = bookRepository.getBookCategory().filter { it.id == bookCategoryId }
+            val constraint = bookRepository.getBook().filter { it.bookCategoryId == bookCategoryId }
             if (constraint.isEmpty()) {
                 val result = bookRepository.deleteBookCategory(bookCategoryId)
-                if (result.isSuccessful)
-                    _deleteBookCategoryResponse.postValue(
-                        DeleteBookCategoryResponse(
-                            RetrofitStatus.SUCCESS
-                        )
+                _deleteBookCategoryResponse.postValue(
+                    DeleteBookCategoryResponse(
+                        RetrofitStatus.SUCCESS,
+                        result
                     )
-                else {
-                    _deleteBookCategoryResponse.postValue(
-                        DeleteBookCategoryResponse(
-                            RetrofitStatus.FAILURE
-                        )
-                    )
-                    Log.e(this::class.java.simpleName, result.toString())
-                }
+                )
             } else _deleteBookCategoryResponse.postValue(
                 DeleteBookCategoryResponse(
                     RetrofitStatus.CONSTRAINT_DETECTED

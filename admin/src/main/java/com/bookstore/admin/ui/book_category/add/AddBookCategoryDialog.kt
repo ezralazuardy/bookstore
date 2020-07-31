@@ -11,6 +11,7 @@ import com.bookstore.admin.R
 import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.request.book.AddBookCategoryRequest
 import com.bookstore.admin.ui.main.MainViewModel
+import com.bookstore.admin.ui.main.fragment.book_category.adapter.BookCategoryItemListener
 import com.bookstore.admin.utils.ViewHelper.hide
 import com.bookstore.admin.utils.ViewHelper.show
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -24,11 +25,16 @@ class AddBookCategoryDialog private constructor() : BottomSheetDialogFragment() 
     companion object {
         const val TAG = "AddBookCategoryDialog"
 
-        fun createInstance(): AddBookCategoryDialog = AddBookCategoryDialog()
+        fun createInstance(
+            bookCategoryItemListener: BookCategoryItemListener? = null
+        ): AddBookCategoryDialog = AddBookCategoryDialog().apply {
+            this.bookCategoryItemListener = bookCategoryItemListener
+        }
     }
 
     private val mainViewModel: MainViewModel by sharedViewModel()
     private val addBookCategoryViewModel: AddBookCategoryViewModel by viewModel()
+    private var bookCategoryItemListener: BookCategoryItemListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +50,9 @@ class AddBookCategoryDialog private constructor() : BottomSheetDialogFragment() 
             Observer { response ->
                 when (response.status) {
                     RetrofitStatus.SUCCESS -> {
+                        response.bookCategory?.let {
+                            bookCategoryItemListener?.onItemAdd(it)
+                        }
                         this.dismiss()
                         Toast.makeText(
                             requireContext(),

@@ -12,6 +12,7 @@ import com.bookstore.admin.constant.RetrofitStatus
 import com.bookstore.admin.model.request.book.UpdateBookCategoryRequest
 import com.bookstore.admin.model.response.book.BookCategory
 import com.bookstore.admin.ui.main.MainViewModel
+import com.bookstore.admin.ui.main.fragment.book_category.adapter.BookCategoryItemListener
 import com.bookstore.admin.utils.ViewHelper.hide
 import com.bookstore.admin.utils.ViewHelper.show
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -24,15 +25,19 @@ class EditBookCategoryDialog private constructor() : BottomSheetDialogFragment()
     companion object {
         const val TAG = "EditBookCategoryDialog"
 
-        fun createInstance(bookCategory: BookCategory): EditBookCategoryDialog =
-            EditBookCategoryDialog().apply {
-                this.bookCategory = bookCategory
-            }
+        fun createInstance(
+            bookCategory: BookCategory,
+            bookCategoryItemListener: BookCategoryItemListener? = null
+        ): EditBookCategoryDialog = EditBookCategoryDialog().apply {
+            this.bookCategory = bookCategory
+            this.bookCategoryItemListener = bookCategoryItemListener
+        }
     }
 
     private val mainViewModel: MainViewModel by sharedViewModel()
     private val editBookCategoryViewModel: EditBookCategoryViewModel by viewModel()
     private lateinit var bookCategory: BookCategory
+    private var bookCategoryItemListener: BookCategoryItemListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +55,9 @@ class EditBookCategoryDialog private constructor() : BottomSheetDialogFragment()
                     hideLoading()
                     when (response.status) {
                         RetrofitStatus.SUCCESS -> {
+                            response.bookCategory?.let {
+                                bookCategoryItemListener?.onItemUpdate(it)
+                            }
                             this.dismiss()
                             Toast.makeText(
                                 requireContext(),
@@ -70,6 +78,9 @@ class EditBookCategoryDialog private constructor() : BottomSheetDialogFragment()
                 Observer { response ->
                     when (response.status) {
                         RetrofitStatus.SUCCESS -> {
+                            response.bookCategory?.let {
+                                bookCategoryItemListener?.onItemDelete(it)
+                            }
                             this.dismiss()
                             Toast.makeText(
                                 requireContext(),

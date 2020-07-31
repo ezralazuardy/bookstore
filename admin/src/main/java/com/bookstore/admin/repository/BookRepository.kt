@@ -62,13 +62,13 @@ class BookRepository(
         else throw SessionHelper.unauthorizedException
     }
 
-    suspend fun addBookCategory(addBookCategoryRequest: AddBookCategoryRequest): Response<ResponseBody> =
+    suspend fun addBookCategory(addBookCategoryRequest: AddBookCategoryRequest): BookCategory =
         userRepository.checkSession().let {
             if (it != null) return bookDAO.addBookCategory(it.asBearer(), addBookCategoryRequest)
             else throw SessionHelper.unauthorizedException
         }
 
-    suspend fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest): Response<ResponseBody> =
+    suspend fun updateBookCategory(updateBookCategoryRequest: UpdateBookCategoryRequest): BookCategory =
         userRepository.checkSession().let {
             if (it != null) return bookDAO.updateBookCategory(
                 it.asBearer(),
@@ -77,7 +77,7 @@ class BookRepository(
             else throw SessionHelper.unauthorizedException
         }
 
-    suspend fun deleteBookCategory(bookCategoryId: Int): Response<ResponseBody> =
+    suspend fun deleteBookCategory(bookCategoryId: Int): BookCategory =
         userRepository.checkSession().let {
             if (it != null) return bookDAO.deleteBookCategory(it.asBearer(), bookCategoryId)
             else throw SessionHelper.unauthorizedException

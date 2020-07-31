@@ -14,7 +14,9 @@ interface RemoteBookDAO {
     suspend fun getBook(@Header("Authorization") authorization: String) : List<Book>
 
     @GET("/api/rest/favourite-book/findByUserId/${AppConfig.OAUTH_DEFAULT_CUSTOMER_ID}")
-    suspend fun getFavouriteBook(@Header("Authorization") authorization: String) : FavouriteBook
+    suspend fun getFavouriteBook(
+        @Header("Authorization") authorization: String
+    ): FavouriteBook
 
     @POST("/api/rest/favourite-book/saveOrUpdate")
     suspend fun addBookToFavourite(

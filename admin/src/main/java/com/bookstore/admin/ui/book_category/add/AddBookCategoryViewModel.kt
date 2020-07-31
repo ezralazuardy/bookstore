@@ -1,7 +1,6 @@
 package com.bookstore.admin.ui.book_category.add
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -27,12 +26,12 @@ class AddBookCategoryViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = bookRepository.addBookCategory(addBookCategoryRequest)
-                if (result.isSuccessful)
-                    _addBookCategoryResponse.postValue(AddBookCategoryResponse(RetrofitStatus.SUCCESS))
-                else {
-                    _addBookCategoryResponse.postValue(AddBookCategoryResponse(RetrofitStatus.FAILURE))
-                    Log.e(this::class.java.simpleName, result.toString())
-                }
+                _addBookCategoryResponse.postValue(
+                    AddBookCategoryResponse(
+                        RetrofitStatus.SUCCESS,
+                        result
+                    )
+                )
             } catch (throwable: Throwable) {
                 if (throwable is HttpException && throwable.code() == 401)
                     _addBookCategoryResponse.postValue(AddBookCategoryResponse(RetrofitStatus.UNAUTHORIZED))

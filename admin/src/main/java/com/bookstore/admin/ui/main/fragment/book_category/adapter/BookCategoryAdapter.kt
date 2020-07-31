@@ -27,6 +27,26 @@ class BookCategoryAdapter(
 
     fun getData() = originalBookCategories
 
+    fun addData(bookCategory: BookCategory) {
+        originalBookCategories.add(bookCategory)
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
+
+    fun updateData(bookCategory: BookCategory) {
+        val indexTarget = originalBookCategories.indexOfFirst { it.id == bookCategory.id }
+        originalBookCategories[indexTarget] = bookCategory
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
+
+    fun deleteData(bookCategory: BookCategory) {
+        val indexTarget = originalBookCategories.indexOfFirst { it.id == bookCategory.id }
+        originalBookCategories.removeAt(indexTarget)
+        this.bookCategories = originalBookCategories
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
             LayoutInflater.from(parent.context)

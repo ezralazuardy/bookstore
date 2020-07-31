@@ -6,7 +6,13 @@ interface BookCategoryItemListener {
 
     fun onItemSearch(empty: Boolean)
 
+    fun onItemDraw(bookCategories: List<BookCategory>)
+
     fun onItemClick(bookCategory: BookCategory)
 
-    fun onItemDraw(bookCategories: List<BookCategory>)
+    fun onItemAdd(bookCategory: BookCategory)
+
+    fun onItemUpdate(bookCategory: BookCategory)
+
+    fun onItemDelete(bookCategory: BookCategory)
 }

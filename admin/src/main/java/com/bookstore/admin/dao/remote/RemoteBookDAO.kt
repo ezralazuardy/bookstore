@@ -49,17 +49,17 @@ interface RemoteBookDAO {
     suspend fun addBookCategory(
         @Header("Authorization") authorization: String,
         @Body addBookCategoryRequest: AddBookCategoryRequest
-    ): Response<ResponseBody>
+    ): BookCategory
 
     @POST("/api/rest/book-category/update")
     suspend fun updateBookCategory(
         @Header("Authorization") authorization: String,
         @Body updateBookCategoryRequest: UpdateBookCategoryRequest
-    ): Response<ResponseBody>
+    ): BookCategory
 
     @DELETE("/api/rest/book-category/deleteById/{book_category_id}")
     suspend fun deleteBookCategory(
         @Header("Authorization") authorization: String,
         @Path("book_category_id") bookCategoryId: Int
-    ): Response<ResponseBody>
+    ): BookCategory
 }

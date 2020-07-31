@@ -63,7 +63,7 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
             showSearchBar()
         }
         button_add.setOnClickListener {
-            AddBookCategoryDialog.createInstance().show(
+            AddBookCategoryDialog.createInstance(this).show(
                 requireActivity().supportFragmentManager,
                 AddBookCategoryDialog.TAG
             )
@@ -101,13 +101,6 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
         else placeholder_empty.hide()
     }
 
-    override fun onItemClick(bookCategory: BookCategory) {
-        EditBookCategoryDialog.createInstance(bookCategory).show(
-            requireActivity().supportFragmentManager,
-            EditBookCategoryDialog.TAG
-        )
-    }
-
     override fun onItemDraw(bookCategories: List<BookCategory>) {
         when {
             input_search.isShown -> layout_book_category_count.hide()
@@ -117,6 +110,25 @@ class BookCategoryFragment : Fragment(), BookCategoryItemListener {
                 layout_book_category_count.show()
             }
         }
+    }
+
+    override fun onItemClick(bookCategory: BookCategory) {
+        EditBookCategoryDialog.createInstance(bookCategory, this).show(
+            requireActivity().supportFragmentManager,
+            EditBookCategoryDialog.TAG
+        )
+    }
+
+    override fun onItemAdd(bookCategory: BookCategory) {
+        bookCategoryAdapter.addData(bookCategory)
+    }
+
+    override fun onItemUpdate(bookCategory: BookCategory) {
+        bookCategoryAdapter.updateData(bookCategory)
+    }
+
+    override fun onItemDelete(bookCategory: BookCategory) {
+        bookCategoryAdapter.deleteData(bookCategory)
     }
 
     private fun hideSearchBar() {
